@@ -1,0 +1,7 @@
+.gitignore.txt
+.htaccess
+.vscode/
+style.scss
+swiper.min.css
+locomotive.min.js
+swiper-bundle.min.js

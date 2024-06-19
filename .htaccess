@@ -1,0 +1,4 @@
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^https://vozgraphika.fr$ [OR]
+RewriteCond %{HTTP_HOST} ^https://vozgraphika.fr$
+RewriteRule (.*)$ vozgraphika.fr/$1 [R=301,L]

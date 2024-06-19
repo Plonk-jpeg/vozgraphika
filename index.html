@@ -1,0 +1,1437 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Voz Graphika</title>
+    <meta name="description" content="Voz Graphika">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="/assets/img/favicon.webp">
+    <link rel="stylesheet" href="assets/sass/style.css">
+    <link rel="stylesheet" href="assets/sass/swiper.min.css">
+    <script src="assets/js/locomotive.min.js" type="text/javascript"></script>
+    <script src="assets/js/locomotive-script.js" type="text/javascript"></script>
+    <script src="assets/js/swiper-bundle.min.js" type="text/javascript"></script>
+    <script src="assets/js/script.js" type="text/javascript"></script>
+    <script src="https://kit.fontawesome.com/7ee3d41dde.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body data-scroll-container>
+    <header>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                const loader = document.querySelector('.loader');
+                const videoFront = document.querySelector('.video-front');
+                const videoBg = document.querySelector('.video-bg video');
+                let videosLoaded = false;
+                let pageLoaded = false;
+
+                // Function to hide the loader
+                function hideLoader() {
+                    console.log("Hiding loader");
+                    loader.classList.add('hidden');
+                    loader.addEventListener('transitionend', () => {
+                        console.log("Loader removed from DOM");
+                        loader.remove();
+                    });
+                }
+
+                // Function to check if both videos are loaded
+                function checkVideosLoaded() {
+                    console.log("Checking if videos are loaded");
+                    if (videoFront.readyState >= 3 && videoBg.readyState >= 3) {
+                        console.log("Both videos are loaded");
+                        videosLoaded = true;
+                        if (pageLoaded) {
+                            hideLoader();
+                        }
+                    }
+                }
+
+                // Event listeners for videos to check if they are ready
+                videoFront.addEventListener('canplaythrough', checkVideosLoaded);
+                videoBg.addEventListener('canplaythrough', checkVideosLoaded);
+
+                // Fallback to hide loader after 3 seconds if videos take too long
+                const timeout = setTimeout(() => {
+                    console.log("Timeout reached, hiding loader");
+                    if (!videosLoaded) {
+                        hideLoader();
+                    }
+                }, 3000);
+
+                // Hide loader when the page is fully loaded
+                window.addEventListener('load', () => {
+                    console.log("Page fully loaded");
+                    pageLoaded = true;
+                    clearTimeout(timeout); // Clear the timeout if the page loads before 3 seconds
+                    if (videosLoaded) {
+                        hideLoader();
+                    }
+                });
+            });
+        </script>
+
+
+
+        <section class="loader">
+            <video autoplay muted loop class="video-front" preload="auto">
+                <source src="assets/video/loader.webm" type="video/webm">
+            </video>
+
+            <div class="video-bg">
+                <video autoplay muted loop preload="auto">
+                    <source src="assets/video/bgloader.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="loader-mask">
+
+            </div>
+        </section>
+        <nav id="header-menu-button">
+            <div class="menu-btn">
+                <button class="menu-btn" type="button">
+                </button>
+                <span>menu</span>
+                <video class="video-menu" autoplay muted loop>
+                    <source src="assets/video/menufloat.webm" type="video/webm">
+                </video>
+            </div>
+            <div class="menu-panel">
+                <ul>
+                    <li class="menu-slct">
+                        <button class="slct-btn" id="menu1" href="">selected <br> work</button>
+                        <button class="slct-btn" id="menu2" href="">website <br> development</button>
+                        <button class="slct-btn" id="menu3" href="">collection of 3d</button>
+                    </li>
+                    <div class="socials">
+                        <li>
+                            <a href="https://www.instagram.com/plonnnk/">
+                                <p>instagram</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.linkedin.com/in/theo-sylvoz-498480187/">
+
+                                <p>linkedin</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/Plonk-jpeg">
+                                <p>github</p>
+                            </a>
+                        </li>
+                    </div>
+                    <li class="menu-slct">contact</li>
+                </ul>
+            </div>
+        </nav>
+        <div class="header-logo">
+            <script>
+                document.addEventListener('DOMContentLoaded', function () {
+                    // Générer un nombre aléatoire entre 1 et 14
+                    const randomNum = Math.floor(Math.random() * 14) + 1;
+
+                    // Construire le chemin de la vidéo
+                    const videoPath = `assets/video/video_${randomNum}.webm`;
+                    // Sélectionner l'élément vidéo
+                    const videoElement = document.getElementById('randomBackground');
+
+                    // Définir la source de la vidéo
+                    videoElement.src = videoPath;
+
+                    // Charger la vidéo
+                    videoElement.load();
+                });
+            </script>
+            <video id="randomBackground" autoplay muted loop class="background-container"></video>
+        </div>
+    </header>
+    <main class="main-container">
+
+        <script>
+            // Fonction pour détecter un appareil mobile ou un PC avec un écran tactile
+            function isMobileOrTouchDevice() {
+                return /Mobi|Android|Touch/i.test(navigator.userAgent);
+            }
+
+            // Ajouter la vidéo si ce n'est pas un appareil mobile ou un PC avec écran tactile
+            window.onload = function () {
+                if (!isMobileOrTouchDevice()) {
+                    var videoContainer = document.querySelector('.logotheque-arch-video');
+                    var videoElement = document.createElement('video');
+                    videoElement.src = 'assets/img/work/star-warp.mp4';
+                    videoElement.playsInline = true;
+                    videoElement.autoplay = true;
+                    videoElement.muted = true;
+                    videoElement.loop = true;
+                    videoContainer.appendChild(videoElement);
+                } else {
+                    // Supprimer la classe ou l'élément vidéo existant si nécessaire
+                    var videoContainer = document.querySelector('.logotheque-arch-video');
+                    videoContainer.parentNode.removeChild(videoContainer); // Supprimer le conteneur de la vidéo
+                    // ou
+                    var videoElement = document.querySelector('.logotheque-arch-video video');
+                    if (videoElement) {
+                        videoElement.parentNode.removeChild(videoElement); // Supprimer directement la vidéo
+                    }
+                }
+            };
+
+            document.addEventListener('DOMContentLoaded', function () {
+                    const menuButtons = document.querySelectorAll('.menu-slct button');
+                    menuButtons.forEach(button => {
+                        button.addEventListener('click', function () {
+                            const videoElement = document.querySelector('.logotheque-arch-video');
+                            if (videoElement) {
+                                videoElement.classList.remove('fading');
+                            }
+                        });
+                    });
+                });
+        </script>
+
+
+        <div class="logotheque-arch-video">
+        </div>
+        <section data-scroll-section>
+            <span data-scroll>
+                
+            </span>
+        </section>
+        <section class="marquee section-size" data-scroll-section>
+            <div data-scroll class="swipper">
+                <div class="swiper-container--marquee">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div>
+                                <img src="assets/img/voz.webp" alt="" />
+                            </div>
+                            <div>
+                                <img src="assets/img/bg-slct.webp" alt="" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section-title section-size" data-scroll-section>
+            <h2 class="visible-on-scroll" data-scroll>
+                <div class="visible-on-scroll" data-scroll data-scroll-delay="0.2" data-scroll-speed="5">
+                    <span>I'm a</span>
+                    <span>french</span>
+                    <span>graphic</span>
+                    <span>&</span>
+                    <span>web</span>
+                    <span>designer</span>
+                    <span>based</span>
+                    <span>in</span>
+                    <span class="unlerp">Angouleme</span>
+                </div>
+                <div class="visible-on-scroll" data-scroll data-scroll-delay="0.3" data-scroll-speed="5">
+                    <span>I'm a</span>
+                    <span>french</span>
+                    <span>graphic</span>
+                    <span>&</span>
+                    <span>web</span>
+                    <span>designer</span>
+                    <span>based</span>
+                    <span>in</span>
+                    <span class="unlerp">Angouleme</span>
+                </div>
+                <div class="visible-on-scroll" data-scroll data-scroll-delay="0.4" data-scroll-speed="5">
+                    <span>I'm a</span>
+                    <span>french</span>
+                    <span>graphic</span>
+                    <span>&</span>
+                    <span>web</span>
+                    <span>designer</span>
+                    <span>based</span>
+                    <span>in</span>
+                    <span class="unlerp">Angouleme</span>
+                </div>
+                <div class="visible-on-scroll" data-scroll data-scroll-delay="0.5" data-scroll-speed="5">
+                    <span>I'm a</span>
+                    <span>french</span>
+                    <span>graphic</span>
+                    <span>&</span>
+                    <span>web</span>
+                    <span>designer</span>
+                    <span>based</span>
+                    <span>in</span>
+                    <span class="unlerp">Angouleme</span>
+                </div>
+                <div class="visible-on-scroll" data-scroll data-scroll-delay="0.6" data-scroll-speed="5">
+                    <span>I'm a</span>
+                    <span>french</span>
+                    <span>graphic</span>
+                    <span>&</span>
+                    <span>web</span>
+                    <span>designer</span>
+                    <span>based</span>
+                    <span>in</span>
+                    <span class="unlerp">Angouleme</span>
+                </div>
+                <div class="visible-on-scroll" data-scroll data-scroll-delay="0.7" data-scroll-speed="5">
+                    <span>I'm a</span>
+                    <span>french</span>
+                    <span>graphic</span>
+                    <span>&</span>
+                    <span>web</span>
+                    <span>designer</span>
+                    <span>based</span>
+                    <span>in</span>
+                    <span class="unlerp">Angouleme</span>
+                </div>
+                <div data-scroll data-scroll-delay="0.8" data-scroll-speed="5">
+                    <span>I'm a</span>
+                    <span>french</span>
+                    <span>graphic</span>
+                    <span>&</span>
+                    <span>web</span>
+                    <span>designer</span>
+                    <span>based</span>
+                    <span>in</span>
+                    <span>Angouleme</span>
+                </div>
+            </h2>
+        </section>
+
+        <section class="container-selected-work setlist-for-selected-work" id="setList-1" data-scroll-section>
+            <div class="blurry-bg">
+            </div>
+            <div class="selected-work-content">
+                <div class="selected-work-title">
+                    <h2>
+                        selected <span>work</span>
+                    </h2>
+                    <p>
+                        Sang sueur et larmes
+                    </p>
+                </div>
+                <div>
+                    <div class="swipper selected-work-swipper">
+                        <div class="setlist-for-selected-work">
+                            <div class="swiper-container--selected-work">
+                                <div class="swiper-wrapper">
+
+                                    <div class="swiper-slide multi-mork">
+
+                                        <div class="slide-container-multi">
+                                            <ul class="slide-content-multi-bg">
+                                                <li>
+                                                    <span class="bg">
+                                                        <picture>
+                                                            <img data-src="assets/img/work/accord-nomades-bg.webp"
+                                                                alt="" loading="lazy" />
+                                                        </picture>
+                                                    </span>
+                                                </li>
+                                                <li>
+                                                    <span class="bg">
+                                                        <picture>
+                                                            <img data-src="assets/img/work/accord-nomades-bg.webp"
+                                                                alt="" loading="lazy" />
+                                                        </picture>
+                                                    </span>
+                                                </li>
+                                                <li>
+                                                    <span class="bg">
+                                                        <picture>
+                                                            <img data-src="assets/img/work/accord-nomades-bg.webp"
+                                                                alt="" loading="lazy" />
+                                                        </picture>
+                                                    </span>
+                                                </li>
+                                                <li>
+                                                    <span class="bg">
+                                                        <picture>
+                                                            <img data-src="assets/img/work/accord-nomades-bg.webp"
+                                                                alt="" loading="lazy" />
+                                                        </picture>
+                                                    </span>
+                                                </li>
+                                            </ul>
+                                            <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        const addendumContainer = document.querySelector('.slide-container-multi-addendum-container');
+                        addendumContainer.classList.add('visible');
+                    }, 1500); // Delay of 3 seconds
+                    observer.unobserve(entry.target); // Stop observing after triggering
+                }
+            });
+        }, {
+            threshold: 0.1 // Adjust based on when you consider the element "visible"
+        });
+
+        const element = document.querySelector('.slide-content-multi-frt');
+        observer.observe(element);
+    });
+                                            </script>
+                                            <div class="slide-container-multi-addendum-container">
+                                                <div class="slide-container-multi-addendum-content">
+                                                    <div class="addendum-first-object">
+                                                        <img src="assets/img/work/pochette.png" alt="">
+                                                    </div>
+                                                    <div class="addendum-second-object">
+                                                        <img src="assets/img/work/vinyle.png" alt="">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <ul class="slide-content-multi-frt">
+                                                <li>
+                                                    <span class="frt">
+                                                        <picture>
+                                                            <img data-src="assets/img/work/accord-nomades-poch-avant.webp"
+                                                                alt="" loading="lazy" />
+                                                        </picture>
+                                                    </span>
+                                                </li>
+                                                <li>
+                                                    <span class="frt">
+                                                        <picture>
+                                                            <img data-src="assets/img/work/accord-nomades-poch-arriere.webp"
+                                                                alt="" loading="lazy" />
+                                                        </picture>
+                                                    </span>
+                                                </li>
+                                                <li>
+                                                    <span class="frt">
+                                                        <picture>
+                                                            <img data-src="assets/img/work/accord-nomades-maca-arriere.webp"
+                                                                alt="" loading="lazy" />
+                                                        </picture>
+                                                    </span>
+                                                </li>
+                                                <li>
+                                                    <span class="frt">
+                                                        <picture>
+                                                            <img data-src="assets/img/work/accord-nomades-maca-avant.webp"
+                                                                alt="" loading="lazy" />
+                                                        </picture>
+                                                    </span>
+                                                </li>
+                                            </ul>
+                                        </div>
+
+                                    </div>
+                                    <div class="swiper-slide multi-mork">
+                                        <div class="slide-container-multi">
+                                            <ul class="slide-content-multi-bg">
+                                                <li>
+                                                    <span class="bg">
+                                                        <picture>
+                                                            <img data-src="assets/img/work/ufo.webp" alt=""
+                                                                loading="lazy" />
+                                                        </picture>
+                                                    </span>
+                                                </li>
+                                                <li>
+                                                    <span class="bg">
+                                                        <picture>
+                                                            <img data-src="assets/img/work/robot.webp" alt=""
+                                                                loading="lazy" />
+                                                        </picture>
+                                                    </span>
+                                                </li>
+                                                <li>
+                                                    <span class="bg">
+                                                        <picture>
+                                                            <img data-src="assets/img/work/soireegeek-rpg-bg.webp"
+                                                                alt="" loading="lazy" />
+                                                        </picture>
+                                                    </span>
+                                                </li>
+                                                <li>
+                                                    <span class="bg">
+                                                        <picture>
+                                                            <img data-src="assets/img/work/ufo.webp" alt=""
+                                                                loading="lazy" />
+                                                        </picture>
+                                                    </span>
+                                                </li>
+                                            </ul>
+                                            <ul class="slide-content-multi-frt">
+                                                <li>
+                                                    <span class="frt">
+                                                        <picture>
+                                                            <img data-src="assets/img/work/ufo-pers.webp" alt=""
+                                                                loading="lazy" />
+                                                        </picture>
+                                                    </span>
+                                                </li>
+                                                <li>
+                                                    <span class="frt">
+                                                        <picture>
+                                                            <img data-src="assets/img/work/robot-pers.webp" alt=""
+                                                                loading="lazy" />
+                                                        </picture>
+                                                    </span>
+                                                </li>
+                                                <li>
+                                                    <span class="frt">
+                                                        <picture>
+                                                            <img data-src="assets/img/work/soireegeek-rpg-front.webp"
+                                                                alt="" loading="lazy" />
+                                                        </picture>
+                                                    </span>
+                                                </li>
+                                                <li>
+                                                    <span class="frt">
+                                                        <picture>
+                                                            <img data-src="assets/img/work/soiree-geek-sangoku-front.webp"
+                                                                alt="" loading="lazy" />
+                                                        </picture>
+                                                    </span>
+                                                </li>
+                                            </ul>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="swiper-slide">
+                                        <div class="slide-container">
+                                            <span>
+                                                <picture>
+                                                    <img data-src="assets/img/work/aispace.webp" alt=""
+                                                        loading="lazy" />
+                                                </picture>
+                                            </span>
+                                            <span>
+                                                <picture>
+                                                    <img data-src="assets/img/work/aispace-pers.webp" alt=""
+                                                        loading="lazy" />
+                                                </picture>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <div class="slide-container">
+                                            <span>
+                                                <picture>
+                                                    <img data-src="assets/img/work/pale-yellow-bg.webp" alt=""
+                                                        loading="lazy" />
+                                                </picture>
+                                            </span>
+                                            <span>
+                                                <picture>
+                                                    <img data-src="assets/img/work/vector-a-portrait.webp" alt=""
+                                                        loading="lazy" />
+                                                </picture>
+                                            </span>
+                                        </div>
+                                    </div>
+
+                                    <div class="swiper-slide">
+                                        <div class="slide-container">
+                                            <span>
+                                                <picture>
+                                                    <img data-src="assets/img/work/les-salons-bleu-bg.webp" alt=""
+                                                        loading="lazy" />
+                                                </picture>
+                                            </span>
+                                            <span>
+                                                <picture>
+                                                    <img data-src="assets/img/work/les-salons-bleu-front.webp" alt=""
+                                                        loading="lazy" />
+                                                </picture>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <div class="slide-container">
+                                            <span>
+                                                <picture>
+                                                    <img data-src="assets/img/work/les-salons-bleu-bg.webp" alt=""
+                                                        loading="lazy" />
+                                                </picture>
+                                            </span>
+                                            <span>
+                                                <picture>
+                                                    <img data-src="assets/img/work/alice-pers.webp" alt=""
+                                                        loading="lazy" />
+                                                </picture>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <div class="slide-container">
+                                            <span>
+                                                <picture>
+                                                    <img data-src="assets/img/work/anadore-poster.webp" alt=""
+                                                        loading="lazy" />
+                                                </picture>
+                                            </span>
+                                            <span>
+                                                <picture>
+                                                    <img data-src="assets/img/work/anadore-poster-front.webp" alt=""
+                                                        loading="lazy" />
+                                                </picture>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <div class="slide-container">
+                                            <span>
+                                                <picture>
+                                                    <img data-src="assets/img/work/les-salons-bleu-bg.webp" alt=""
+                                                        loading="lazy" />
+                                                </picture>
+                                            </span>
+                                            <span>
+                                                <picture>
+                                                    <img data-src="assets/img/work/carte-art-nouveau.webp" alt=""
+                                                        style="width: 50vw; height: auto;" loading="lazy" />
+                                                </picture>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <div class="slide-container" style="transform: scale(1.5)translate(0, -33%);">
+                                            <span>
+                                                <picture>
+                                                    <img data-src="assets/img/work/art-nouveau-ludena.webp" alt=""
+                                                        loading="lazy" />
+                                                </picture>
+                                            </span>
+                                            <span>
+                                                <picture>
+                                                    <img data-src="assets/img/work/art-nouveau-ludena-front.webp" alt=""
+                                                        loading="lazy" />
+                                                </picture>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <div class="slide-container" style="transform: scale(1.25)translate(0, -40%);">
+                                            <span>
+                                                <picture>
+                                                    <img data-src="assets/img/work/car-back.webp" alt=""
+                                                        loading="lazy" />
+                                                </picture>
+                                            </span>
+                                            <span>
+                                                <picture>
+                                                    <img data-src="assets/img/work/car-front.webp" alt=""
+                                                        loading="lazy" />
+                                                </picture>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <div class="slide-container">
+                                            <span>
+                                                <picture>
+                                                    <img data-src="assets/img/work/lbdi-back.webp" alt=""
+                                                        loading="lazy" />
+                                                </picture>
+                                            </span>
+                                            <span>
+                                                <picture>
+                                                    <img data-src="assets/img/work/lbdi.webp" alt="" loading="lazy" />
+                                                </picture>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <div class="slide-container">
+                                            <span>
+                                                <picture>
+                                                    <img data-src="assets/img/work/helene-back.webp" alt=""
+                                                        loading="lazy" />
+                                                </picture>
+                                            </span>
+                                            <span>
+                                                <picture>
+                                                    <img data-src="assets/img/work/helene-front.webp" alt=""
+                                                        style="width: 50vw; height: auto;" loading="lazy" />
+                                                </picture>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="selected-work-controller">
+                        <div class="info-content replace">
+                            <div class="info-item js-active">
+                                <ul>
+                                    <li>
+                                        <em>01</em>
+                                    </li>
+                                    <li>
+                                        <strong>Accords Nomades</strong>
+                                    </li>
+                                    <li>
+                                        <span>Pochette vinyle</span>
+                                    </li>
+                                </ul>
+                                <ul>
+                                    <li>
+                                        <div>
+                                            <picture>
+                                                <img src="assets/img/icons/photoshop-icon.webp" alt="">
+                                            </picture>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="info-item ">
+                                <ul>
+                                    <li>
+                                        <em>02</em>
+                                    </li>
+                                    <li>
+                                        <strong>Soiree Geek</strong>
+                                    </li>
+                                    <li>
+                                        <span>Affiches promotionelles</span>
+                                    </li>
+                                </ul>
+                                <ul>
+                                    <li>
+                                        <div>
+                                            <picture>
+                                                <img src="assets/img/icons/illustrator-icon.webp" alt="">
+                                            </picture>
+                                        </div>
+                                    </li>
+
+                                </ul>
+                            </div>
+                            <div class="info-item ">
+                                <ul>
+                                    <li>
+                                        <em>03</em>
+                                    </li>
+                                    <li>
+                                        <strong>Space scape</strong>
+                                    </li>
+                                    <li>
+                                        <span>illustration perso</span>
+                                    </li>
+                                </ul>
+                                <ul>
+                                    <li>
+                                        <div>
+                                            <picture>
+                                                <img src="assets/img/icons/illustrator-icon.webp" alt="">
+                                            </picture>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="info-item ">
+                                <ul>
+                                    <li>
+                                        <em>04</em>
+                                    </li>
+                                    <li>
+                                        <strong>Face</strong>
+                                    </li>
+                                    <li>
+                                        <span>illustration perso</span>
+                                    </li>
+                                </ul>
+                                <ul>
+
+                                    <li>
+                                        <div>
+                                            <picture>
+                                                <img src="assets/img/icons/illustrator-icon.webp" alt="">
+                                            </picture>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="info-item ">
+                                <ul>
+                                    <li>
+                                        <em>05</em>
+                                    </li>
+                                    <li>
+                                        <strong>Robert Fairchild</strong>
+                                    </li>
+                                    <li>
+                                        <span>Illustration tote-bag</span>
+                                    </li>
+                                </ul>
+                                <ul>
+                                    <li>
+                                        <div>
+                                            <picture>
+                                                <img src="assets/img/icons/illustrator-icon.webp" alt="">
+                                            </picture>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div>
+                                            <picture>
+                                                <img src="assets/img/icons/photoshop-icon.webp" alt="">
+                                            </picture>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="info-item ">
+                                <ul>
+                                    <li>
+                                        <em>06</em>
+                                    </li>
+                                    <li>
+                                        <strong>Alice</strong>
+                                    </li>
+                                    <li>
+                                        <span>Illustration perso</span>
+                                    </li>
+                                </ul>
+                                <ul>
+                                    <li>
+                                        <div>
+                                            <picture>
+                                                <img src="assets/img/icons/illustrator-icon.webp" alt="">
+                                            </picture>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="info-item ">
+                                <ul>
+                                    <li>
+                                        <em>07</em>
+                                    </li>
+                                    <li>
+                                        <strong>Anadore</strong>
+                                    </li>
+                                    <li>
+                                        <span>Affiche promotionelle</span>
+                                    </li>
+                                </ul>
+                                <ul>
+                                    <li>
+                                        <div>
+                                            <picture>
+                                                <img src="assets/img/icons/illustrator-icon.webp" alt="">
+                                            </picture>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="info-item ">
+                                <ul>
+                                    <li>
+                                        <em>08</em>
+                                    </li>
+                                    <li>
+                                        <strong>Carte Art Nouveau</strong>
+                                    </li>
+                                    <li>
+                                        <span>Carte de tarot</span>
+                                    </li>
+                                </ul>
+                                <ul>
+                                    <li>
+                                        <div>
+                                            <picture>
+                                                <img src="assets/img/icons/sai-icon.webp" alt="">
+                                            </picture>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="info-item ">
+                                <ul>
+                                    <li>
+                                        <em>09</em>
+                                    </li>
+                                    <li>
+                                        <strong>Art Nouveau Ludena</strong>
+                                    </li>
+                                    <li>
+                                        <span>Tableau</span>
+                                    </li>
+                                </ul>
+                                <ul>
+                                    <li>
+                                        <div>
+                                            <picture>
+                                                <img src="assets/img/icons/sai-icon.webp" alt="">
+                                            </picture>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="info-item ">
+                                <ul>
+                                    <li>
+                                        <em>10</em>
+                                    </li>
+                                    <li>
+                                        <strong>Art Nouveau Herout</strong>
+                                    </li>
+                                    <li>
+                                        <span>Tableau</span>
+                                    </li>
+                                </ul>
+                                <ul>
+                                    <li>
+                                        <div>
+                                            <picture>
+                                                <img src="assets/img/icons/illustrator-icon.webp" alt="">
+                                            </picture>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div>
+                                            <picture>
+                                                <img src="assets/img/icons/photoshop-icon.webp" alt="">
+                                            </picture>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div>
+                                            <picture>
+                                                <img src="assets/img/icons/sai-icon.webp" alt="">
+                                            </picture>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="info-item ">
+                                <ul>
+                                    <li>
+                                        <em>11</em>
+                                    </li>
+                                    <li>
+                                        <strong>Le bal de l'imaginaire</strong>
+                                    </li>
+                                    <li>
+                                        <span>Affiche promotionelle</span>
+                                    </li>
+                                </ul>
+                                <ul>
+                                    <li>
+                                        <div>
+                                            <picture>
+                                                <img src="assets/img/icons/illustrator-icon.webp" alt="">
+                                            </picture>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="info-item ">
+                                <ul>
+                                    <li>
+                                        <em>12</em>
+                                    </li>
+                                    <li>
+                                        <strong>Helene</strong>
+                                    </li>
+                                    <li>
+                                        <span>Illustration perso</span>
+                                    </li>
+                                </ul>
+                                <ul>
+                                    <li>
+                                        <div>
+                                            <picture>
+                                                <img src="assets/img/icons/illustrator-icon.webp" alt="">
+                                            </picture>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="selected-work-nav replace">
+                            <ul>
+                                <li>
+                                    <button data-index="0" class="js-active">
+                                        <span>
+                                            <i>0</i>
+                                            <i>1</i>
+                                        </span>
+                                        <span>Accords nomades</span>
+                                    </button>
+                                </li>
+                                <li>
+                                    <button data-index="1">
+                                        <span>
+                                            <i>0</i>
+                                            <i>2</i>
+                                        </span>
+                                        <span>Soiree Geek</span>
+                                    </button>
+                                </li>
+                                <li>
+                                    <button data-index="2">
+                                        <span>
+                                            <i>0</i>
+                                            <i>3</i>
+                                        </span>
+                                        <span>Space scape</span>
+                                    </button>
+                                </li>
+                                <li>
+                                    <button data-index="3">
+                                        <span>
+                                            <i>0</i>
+                                            <i>4</i>
+                                        </span>
+                                        <span>Face</span>
+                                    </button>
+                                </li>
+                                <li>
+                                    <button data-index="4">
+                                        <span>
+                                            <i>0</i>
+                                            <i>5</i>
+                                        </span>
+                                        <span>Robert Fairchild</span>
+                                    </button>
+                                </li>
+                                <li>
+                                    <button data-index="5">
+                                        <span>
+                                            <i>0</i>
+                                            <i>6</i>
+                                        </span>
+                                        <span>Alice</span>
+                                    </button>
+                                </li>
+                                <li>
+                                    <button data-index="6">
+                                        <span>
+                                            <i>0</i>
+                                            <i>7</i>
+                                        </span>
+                                        <span>Anadore</span>
+                                    </button>
+                                </li>
+                                <li>
+                                    <button data-index="7">
+                                        <span>
+                                            <i>0</i>
+                                            <i>8</i>
+                                        </span>
+                                        <span>Cartes Art Nouveau</span>
+                                    </button>
+                                </li>
+                                <li>
+                                    <button data-index="8">
+                                        <span>
+                                            <i>0</i>
+                                            <i>9</i>
+                                        </span>
+                                        <span>Art Nouveau Ludena</span>
+                                    </button>
+                                </li>
+                                <li>
+                                    <button data-index="9">
+                                        <span>
+                                            <i>1</i>
+                                            <i>0</i>
+                                        </span>
+                                        <span>Art Nouveau Herout</span>
+                                    </button>
+                                </li>
+                                <li>
+                                    <button data-index="10">
+                                        <span>
+                                            <i>1</i>
+                                            <i>1</i>
+                                        </span>
+                                        <span>Le bal de l'imaginaire</span>
+                                    </button>
+                                </li>
+                                <li>
+                                    <button data-index="11">
+                                        <span>
+                                            <i>1</i>
+                                            <i>2</i>
+                                        </span>
+                                        <span>Helene</span>
+                                    </button>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- <section class="container-logotheque" data-scroll-section>
+            <section class="container-logotheque-work">
+                <div class="logotheque-work">
+                    <img src="assets/img/work/logotheque.gif" alt="">
+                </div>
+                <div class="logotheque-arch">
+                    <img src="assets/img/arche.webp" alt="">
+                </div>
+                <div class="selected-work-title">
+                    <h2>logo<br>playgronud</h2>
+                </div>
+            </section>
+        </section> -->
+
+        <section class="container-another-work" data-scroll-section>
+            <div>
+                <section class="container-website-work" id="setList-2">
+                    <div class="scroll-text-title">
+                        <h2>website developement</h2>
+                    </div>
+                    <div class="flex-container-wrap">
+                        <div class="website-item">
+                            <picture>
+                                <img src="assets/img/work/boml.webp" alt="">
+                            </picture>
+                            <div class="website-item-wrap">
+                                <div class="website-info">
+                                    <a href="https://github.com/Plonk-jpeg/beware-of-magic-lamb">Beware of magic
+                                        lamb</a>
+                                    <ul>
+                                        <li>
+                                            <div>
+                                                <picture>
+                                                    <img src="assets/img/icons/html-icon.webp" alt="">
+                                                </picture>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div>
+                                                <picture>
+                                                    <img src="assets/img/icons/css-icon.webp" alt="">
+                                                </picture>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div>
+                                                <picture>
+                                                    <img src="assets/img/icons/php-icon.webp" alt="">
+                                                </picture>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div>
+                                                <picture>
+                                                    <img src="assets/img/icons/javascript-icon.webp" alt="">
+                                                </picture>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div>
+                                                <picture>
+                                                    <img src="assets/img/icons/mysql-icon.webp" alt="">
+                                                </picture>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="website-item">
+                            <picture>
+                                <img src="assets/img/work/etravel.webp" alt="">
+                            </picture>
+                            <div class="website-item-wrap">
+                                <div class="website-info">
+                                    <span>Etravel</span>
+                                    <ul>
+                                        <li>
+                                            <div>
+                                                <picture>
+                                                    <img src="assets/img/icons/html-icon.webp" alt="">
+                                                </picture>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div>
+                                                <picture>
+                                                    <img src="assets/img/icons/css-icon.webp" alt="">
+                                                </picture>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div>
+                                                <picture>
+                                                    <img src="assets/img/icons/php-icon.webp" alt="">
+                                                </picture>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div>
+                                                <picture>
+                                                    <img src="assets/img/icons/javascript-icon.webp" alt="">
+                                                </picture>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div>
+                                                <picture>
+                                                    <img src="assets/img/icons/mysql-icon.webp" alt="">
+                                                </picture>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="website-item">
+                            <picture>
+                                <img src="assets/img/work/lpdr.webp" alt="">
+                            </picture>
+                            <div class="website-item-wrap">
+                                <div class="website-info">
+                                    <a href="https://github.com/Plonk-jpeg/les-pepites-du-rap">Les pépites du rap</a>
+                                    <ul>
+                                        <li>
+                                            <div>
+                                                <picture>
+                                                    <img src="assets/img/icons/html-icon.webp" alt="">
+                                                </picture>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div>
+                                                <picture>
+                                                    <img src="assets/img/icons/css-icon.webp" alt="">
+                                                </picture>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div>
+                                                <picture>
+                                                    <img src="assets/img/icons/javascript-icon.webp" alt="">
+                                                </picture>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div>
+                                                <picture>
+                                                    <img src="assets/img/icons/figma-icon.webp" alt="">
+                                                </picture>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="website-item">
+                            <picture>
+                                <img src="assets/img/work/lebelinstant.webp" alt="">
+                            </picture>
+                            <div class="website-item-wrap">
+                                <div class="website-info">
+                                    <a href="https://lebelinstant.net/">Le bel instant</a>
+                                    <ul>
+                                        <li>
+                                            <div>
+                                                <picture>
+                                                    <img src="assets/img/icons/html-icon.webp" alt="">
+                                                </picture>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div>
+                                                <picture>
+                                                    <img src="assets/img/icons/css-icon.webp" alt="">
+                                                </picture>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div>
+                                                <picture>
+                                                    <img src="assets/img/icons/figma-icon.webp" alt="">
+                                                </picture>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div>
+                                                <picture>
+                                                    <img src="assets/img/icons/javascript-icon.webp" alt="">
+                                                </picture>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div>
+                                                <picture>
+                                                    <img src="assets/img/icons/mysql-icon.webp" alt="">
+                                                </picture>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="container-blender-work" id="setList-3">
+                    <div class="scroll-text-title">
+                        <h2>collection of 3D</h2>
+                    </div>
+                    <div class="sticker">
+                        <img src="assets/img/sticker.webp" alt="image de sticker je travaille dessus">
+                    </div>
+                    <ul class="blender-list">
+                        <li class="blender-item">
+                            <button>
+                                <div class="item-year">2023</div>
+                                <div class="item-item">lorem-threedimension</div>
+                                <div class="item-view">→</div>
+                            </button>
+                        </li>
+                        <li class="blender-item">
+                            <button>
+                                <div class="item-year">2023</div>
+                                <div class="item-item">lorem-threedimension</div>
+                                <div class="item-view">→</div>
+                            </button>
+                        </li>
+                        <li class="blender-item">
+                            <button>
+                                <div class="item-year">2023</div>
+                                <div class="item-item">lorem-threedimension</div>
+                                <div class="item-view">→</div>
+                            </button>
+                        </li>
+                        <li class="blender-item">
+                            <button>
+                                <div class="item-year">2023</div>
+                                <div class="item-item">lorem-threedimension</div>
+                                <div class="item-view">→</div>
+                            </button>
+                        </li>
+                    </ul>
+                </section>
+            </div>
+        </section>
+        <section class="blender-reveal">
+            <button class="close-modal">
+                return
+            </button>
+            <div class="blender-reveal-wrap">
+                <div class="blender-reveal-info">
+                    <h2>Projet Blender</h2>
+                    <p>C'est un projet blender.</p>
+                    <div class="blender-reveal-info-wrap">
+                        <div class="item">
+                            <div class="item-title">année</div>
+                            <div class="item-text">2023</div>
+                        </div>
+                        <div class="item">
+                            <div class="item-title">role</div>
+                            <div class="item-text">Design / modeling</div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="image-area">
+                    <ul>
+                        <li>
+                            <picture>
+                                <img src="assets/img/work/10.webp" alt="" />
+                            </picture>
+                        </li>
+                        <li>
+                            <picture>
+                                <img src="assets/img/work/11.webp" alt="" />
+                            </picture>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="picture-area">
+                <ul>
+                    <li>
+                        <picture>
+                            <!-- <img src="assets/img/kermit.gif" alt="" /> -->
+                        </picture>
+                    </li>
+                    <li>
+                        <picture>
+                            <!-- <img src="assets/img/kermit.gif" alt="" /> -->
+                        </picture>
+                    </li>
+                </ul>
+            </div>
+            <div class="scroll-text-title">
+                <h2>view more project</h2>
+            </div>
+            <div class="flex-container-wrap">
+                <div class="nav-item next">
+                    <button>
+                        <picture>
+                            <img src="assets/img/work/0.webp" alt="" />
+                        </picture>
+                        <span>next</span>
+                    </button>
+                </div>
+                <div class="nav-item prev">
+                    <button>
+                        <picture>
+                            <img src="assets/img/work/1.webp" alt="" />
+                        </picture>
+                        <span>prev</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer data-scroll-section>
+        <div class="back-ticker">
+            <div>
+                <span></span>
+            </div>
+            <div>
+                <span></span>
+            </div>
+            <div>
+                <span></span>
+            </div>
+        </div>
+        <div class="contact-form-container">
+            <div class="contact-form">
+                <div class="send-mail">
+                    <h2>Send me a mail at vozgraphika@gmail.com</h2>
+                    <a href="mailto:vozgraphika@gmail.com?subject=Prise%20de%20contact">Send an Email</a>
+                </div>
+            </div>
+
+            <div class="contacts">
+                <div class="socials">
+                    <li>
+                        <a href="https://www.instagram.com/plonnnk?igsh=NXFvNXdwbzMybjBn">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/Plonk-jpeg">
+                            <i class="fa-brands fa-github"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.linkedin.com/in/theo-sylvoz-498480187/">
+                            <i class="fa-brands fa-linkedin"></i>
+                        </a>
+                    </li>
+                </div>
+                <div class="contact-info">
+                    <ul>
+                        <li>theo sylvoz</li>
+                        <li>webdesigner</li>
+                        <li>+33</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
