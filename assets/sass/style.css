@@ -454,12 +454,12 @@ ul {
     background-repeat: no-repeat;
     background-size: cover;
   }
-  html body main .logotheque-arch-video {
+  html body main .star-warp-video {
     display: none;
     opacity: 1;
     transition: opacity 0.5s ease; /* Ajoutez une transition pour un effet de fondu */
   }
-  html body main .logotheque-arch-video video {
+  html body main .star-warp-video video {
     -o-object-fit: cover;
     object-fit: cover;
     width: 100%;
@@ -1712,12 +1712,12 @@ html body main section.container-another-work div section.container-website-work
   }
 }
 @media screen and (min-width: 530px) {
-  html body main .logotheque-arch-video {
+  html body main .star-warp-video {
     display: block;
     opacity: 1;
     transition: opacity 0.5s ease; /* Ajoutez une transition pour un effet de fondu */
   }
-  html body main .logotheque-arch-video video {
+  html body main .star-warp-video video {
     -o-object-fit: cover;
     object-fit: cover;
     width: 100%;
@@ -1726,7 +1726,7 @@ html body main section.container-another-work div section.container-website-work
     top: 0;
     z-index: -200;
   }
-  html body main .logotheque-arch-video.fading {
+  html body main .star-warp-video.fading {
     opacity: 0;
     transition: opacity 0.5s ease; /* Ajoutez une transition pour un effet de fondu */
   }

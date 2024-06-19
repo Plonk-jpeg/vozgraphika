@@ -160,7 +160,7 @@
             // Ajouter la vidéo si ce n'est pas un appareil mobile ou un PC avec écran tactile
             window.onload = function () {
                 if (!isMobileOrTouchDevice()) {
-                    var videoContainer = document.querySelector('.logotheque-arch-video');
+                    var videoContainer = document.querySelector('.star-warp-video');
                     var videoElement = document.createElement('video');
                     videoElement.src = 'assets/img/work/star-warp.mp4';
                     videoElement.playsInline = true;
@@ -170,10 +170,10 @@
                     videoContainer.appendChild(videoElement);
                 } else {
                     // Supprimer la classe ou l'élément vidéo existant si nécessaire
-                    var videoContainer = document.querySelector('.logotheque-arch-video');
+                    var videoContainer = document.querySelector('.star-warp-video');
                     videoContainer.parentNode.removeChild(videoContainer); // Supprimer le conteneur de la vidéo
                     // ou
-                    var videoElement = document.querySelector('.logotheque-arch-video video');
+                    var videoElement = document.querySelector('.star-warp-video video');
                     if (videoElement) {
                         videoElement.parentNode.removeChild(videoElement); // Supprimer directement la vidéo
                     }
@@ -184,7 +184,7 @@
                     const menuButtons = document.querySelectorAll('.menu-slct button');
                     menuButtons.forEach(button => {
                         button.addEventListener('click', function () {
-                            const videoElement = document.querySelector('.logotheque-arch-video');
+                            const videoElement = document.querySelector('.star-warp-video');
                             if (videoElement) {
                                 videoElement.classList.remove('fading');
                             }
@@ -194,7 +194,7 @@
         </script>
 
 
-        <div class="logotheque-arch-video">
+        <div class="star-warp-video">
         </div>
         <section data-scroll-section>
             <span data-scroll>

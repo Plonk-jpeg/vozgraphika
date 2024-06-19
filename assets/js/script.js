@@ -62,7 +62,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // Ajoutez ou supprimez la classe "fading" en fonction du défilement
-    const videoElement = document.querySelector('.logotheque-arch-video');
+    const videoElement = document.querySelector('.star-warp-video');
     if (videoElement) {
       if (totalDeltaY >= 100) {
         videoElement.classList.add('fading');
@@ -88,7 +88,7 @@ document.addEventListener("DOMContentLoaded", function () {
   window.addEventListener("wheel", handleScroll);
 
   // Intersection Observer pour la vidéo
-  const videoElement = document.querySelector('.logotheque-arch-video');
+  const videoElement = document.querySelector('.star-warp-video');
   if (videoElement && "IntersectionObserver" in window) {
     const observerOptions = {
       root: null, // viewport
