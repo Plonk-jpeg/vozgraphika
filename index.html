@@ -87,7 +87,6 @@
                 </video>
             </div>
             <div class="loader-mask">
-
             </div>
         </section>
         <nav id="header-menu-button">
@@ -150,50 +149,6 @@
         </div>
     </header>
     <main class="main-container">
-
-        <script>
-            // Fonction pour détecter un appareil mobile ou un PC avec un écran tactile
-            function isMobileOrTouchDevice() {
-                return /Mobi|Android|Touch/i.test(navigator.userAgent);
-            }
-
-            // Ajouter la vidéo si ce n'est pas un appareil mobile ou un PC avec écran tactile
-            window.onload = function () {
-                if (!isMobileOrTouchDevice()) {
-                    var videoContainer = document.querySelector('.star-warp-video');
-                    var videoElement = document.createElement('video');
-                    videoElement.src = 'assets/img/work/star-warp.mp4';
-                    videoElement.playsInline = true;
-                    videoElement.autoplay = true;
-                    videoElement.muted = true;
-                    videoElement.loop = true;
-                    videoContainer.appendChild(videoElement);
-                } else {
-                    // Supprimer la classe ou l'élément vidéo existant si nécessaire
-                    var videoContainer = document.querySelector('.star-warp-video');
-                    videoContainer.parentNode.removeChild(videoContainer); // Supprimer le conteneur de la vidéo
-                    // ou
-                    var videoElement = document.querySelector('.star-warp-video video');
-                    if (videoElement) {
-                        videoElement.parentNode.removeChild(videoElement); // Supprimer directement la vidéo
-                    }
-                }
-            };
-
-            document.addEventListener('DOMContentLoaded', function () {
-                    const menuButtons = document.querySelectorAll('.menu-slct button');
-                    menuButtons.forEach(button => {
-                        button.addEventListener('click', function () {
-                            const videoElement = document.querySelector('.star-warp-video');
-                            if (videoElement) {
-                                videoElement.classList.remove('fading');
-                            }
-                        });
-                    });
-                });
-        </script>
-
-
         <div class="star-warp-video">
         </div>
         <section data-scroll-section>
@@ -356,23 +311,27 @@
                                             </ul>
                                             <script>
     document.addEventListener('DOMContentLoaded', () => {
+        let timer;
+
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    setTimeout(() => {
+                    timer = setTimeout(() => {
                         const addendumContainer = document.querySelector('.slide-container-multi-addendum-container');
                         addendumContainer.classList.add('visible');
-                    }, 1500); // Delay of 3 seconds
-                    observer.unobserve(entry.target); // Stop observing after triggering
+                    }, 3000); // Delay of 3 seconds
+                } else {
+                    clearTimeout(timer); // Clear the timer if the element is no longer intersecting
                 }
             });
         }, {
             threshold: 0.1 // Adjust based on when you consider the element "visible"
         });
 
-        const element = document.querySelector('.slide-content-multi-frt');
+        const element = document.querySelector('.slide-content-multi-bg');
         observer.observe(element);
     });
+    
                                             </script>
                                             <div class="slide-container-multi-addendum-container">
                                                 <div class="slide-container-multi-addendum-content">

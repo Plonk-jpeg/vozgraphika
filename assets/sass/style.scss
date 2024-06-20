@@ -657,7 +657,6 @@ ul {
         }
       }
       main {
-
         .star-warp-video {
           display: none;
           opacity: 1;
@@ -678,18 +677,16 @@ ul {
           transition: opacity 0.5s ease; /* Ajoutez une transition pour un effet de fondu */
         }
 
-                section 
-                {
-                  .null{
-        width: 10px;
-        height: 10px;
-        background-color: red;
-        position: relative;
-        top: 300px;
-        z-index: 10;
-    }
-                }
-
+        section {
+          .null {
+            width: 10px;
+            height: 10px;
+            background-color: red;
+            position: relative;
+            top: 300px;
+            z-index: 10;
+          }
+        }
 
         .scroll-text-title {
           width: 100%;
@@ -1309,72 +1306,72 @@ ul {
                           }
                         }
                       }
-
 .slide-container-multi-addendum-container {
     transform-style: preserve-3d;
     position: absolute;
-    z-index: 100;
     top: 50%;
-    left: -30%;
     right: 0;
-    transform: translate3d(66%, -20%, 100px) rotateX(7deg) rotateY(3deg) rotateZ(10deg) translate(-50%, 770px) scale(0.70);
-    opacity: 0; /* Initial state hidden */
-    transition: opacity 0.5s ease-in-out; /* Smooth fade-in */
+    transform: translate(0%, -50%);
+    width: 100vw;
+    height: 50vh;
+    // background-color: red;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
 }
 
 .slide-container-multi-addendum-container.visible {
     opacity: 1; /* Fade in */
-    animation: transformAnimation 6s forwards 3s; /* 3s delay */
 }
 
 .slide-container-multi-addendum-content {
     display: flex;
     justify-content: center;
+    position: relative;
+    top: 50%;
+    transform-origin: center;
+    transform: translate3d(0%, 150%, 200px) rotateX(-5deg) rotateY(-70deg) rotateZ(5deg) translate(0%, -50%) scale(1);
+}
+
+.slide-container-multi-addendum-container.visible .slide-container-multi-addendum-content {
+    animation: addendum 5s forwards; /* Animation de 5 secondes qui s'arrête à la dernière image */
+}
+
+@keyframes addendum {
+    0%, 20% {
+        transform: translate3d(0%, 150%, 200px) rotateX(-5deg) rotateY(-70deg) rotateZ(5deg) translate(0%, -50%) scale(1);
+    }
+    // 20%, 40% {
+    //     transform: translate3d(0%, 0%, 200px) rotateX(-5deg) rotateY(-70deg) rotateZ(5deg) translate(0%, -50%) scale(1);
+    // }
+    20%, 60% {
+        transform: translate3d(0%, 0%, 130px) rotateX(-5deg) rotateY(-10deg) rotateZ(0deg) translate(0%, -50%) scale(1);
+    }
+    // 60%, 80% {
+    //     transform: translate3d(7%, 0%, 130px) rotateX(-10deg) rotateY(21deg) rotateZ(-5deg) translate(0%, -50%) scale(0.85);
+    // }
+    60%, 100% {
+        transform: translate3d(7%, 0%, 130px) rotateX(0deg) rotateY(21deg) rotateZ(-5deg) translate(0%, -50%) scale(0.85);
+    }
 }
 
 .addendum-first-object {
-    position: relative;
-    left: 400px;
-    z-index: 1;
-    animation: moveLeft 6000ms forwards 3s; /* 3s delay */
+    width: 34%;
 }
 
 .addendum-second-object {
     position: relative;
-    right: 400px;
-    animation: moveRight 750ms forwards 3s, rotateInfinite 1.5s linear infinite 3s; /* 3s delay */
+    z-index: -1;
+    left: 15px;
+    animation: moveRight 750ms forwards 3s, rotateInfinite 1.818s linear infinite 3s; /* 3s delay */
 }
 
 .addendum-first-object img,
 .addendum-second-object img {
-    width: 800px;
+    width: 190px;
 }
 
-@keyframes transformAnimation {
-    from {
-        transform: translate3d(66%, -20%, 100px) rotateX(7deg) rotateY(3deg) rotateZ(-30deg) translate(-50%, 770px) scale(0.70);
-    }
-    to {
-        transform: translate3d(66%, -20%, 100px) rotateX(7deg) rotateY(3deg) rotateZ(10deg) translate(-50%, 0px) scale(0.70);
-    }
-}
-
-@keyframes moveLeft {
-    from {
-        left: 400px;
-    }
-    to {
-        left: 0;
-    }
-}
-
-@keyframes moveRight {
-    from {
-        right: 400px;
-    }
-    to {
-        right: 150px;
-    }
+.addendum-second-object img {
+    scale: 0.95;
 }
 
 @keyframes rotateInfinite {
@@ -2471,7 +2468,7 @@ ul {
                 .swiper-slide {
                   // width: 75vw;
                   padding: 0 25%;
-                          overflow: hidden;
+                  overflow: hidden;
                   .slide-container {
                     span {
                       picture {
