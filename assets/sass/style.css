@@ -1,4 +1,3 @@
-@charset "UTF-8";
 @font-face {
   font-family: "Morbonodi";
   src: url("../fonts/morbonodi.ttf");
@@ -114,7 +113,7 @@
   }
 }
 html.has-scroll-smooth {
-  overflow: hidden; /* fix */
+  overflow: hidden;
   overflow-x: hidden;
   position: fixed;
   left: 0;
@@ -132,8 +131,8 @@ html.has-scroll-dragging {
 .has-scroll-smooth body {
   overflow: hidden;
   overflow-x: hidden;
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 body::-webkit-scrollbar {
@@ -177,38 +176,6 @@ ul {
   .section-size {
     min-height: 100vh;
     height: 100vh;
-  }
-  .socials {
-    display: flex;
-    gap: 0.75rem;
-    margin: 1.75rem 0;
-  }
-  .socials li {
-    width: 85px;
-    height: 55px;
-    background-color: #070000;
-    border-radius: 1rem;
-    margin: 0.25rem 0;
-  }
-  .socials li a {
-    display: flex;
-    align-items: center;
-    font-family: "Montserrat-extrabold", "Helvetica Neue", sans-serif;
-    font-size: 0.75rem;
-    width: 100%;
-    line-height: 5.5rem;
-    text-transform: uppercase;
-    color: #070000;
-    text-decoration: none;
-  }
-  .socials li a i {
-    font-size: 2rem;
-  }
-  .socials li a p {
-    color: #fcf5eb;
-    font-size: 1rem;
-    width: 100%;
-    text-align: center;
   }
   html {
     font-size: 62.5%;
@@ -267,7 +234,7 @@ ul {
   html body header .loader .video-front {
     position: absolute;
     z-index: 100;
-    width: 50vw;
+    width: 50vh;
     opacity: 1;
     transition: opacity 1s ease-in-out;
   }
@@ -419,6 +386,32 @@ ul {
   html body header nav#header-menu-button .menu-panel ul li.menu-slct:last-child {
     margin: 1.75rem 0;
   }
+  html body header nav#header-menu-button .menu-panel ul .socials {
+    display: flex;
+    gap: 0.75rem;
+    margin: 1.75rem 0;
+  }
+  html body header nav#header-menu-button .menu-panel ul .socials a {
+    display: flex;
+    justify-content: center;
+    font-family: "Montserrat-extrabold", "Helvetica Neue", sans-serif;
+    font-size: 0.75rem;
+    width: 100%;
+    line-height: 5.5rem;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #fcf5eb;
+    font-size: 1rem;
+    width: 100%;
+    width: 85px;
+    height: 55px;
+    background-color: #070000;
+    border-radius: 1rem;
+    margin: 0.25rem 0;
+  }
+  html body header nav#header-menu-button .menu-panel ul .socials a i {
+    font-size: 2rem;
+  }
   html body header .header-logo {
     position: fixed;
     right: 0;
@@ -458,7 +451,7 @@ ul {
   html body main .star-warp-video {
     display: none;
     opacity: 1;
-    transition: opacity 0.5s ease; /* Ajoutez une transition pour un effet de fondu */
+    transition: opacity 0.5s ease;
   }
   html body main .star-warp-video video {
     -o-object-fit: cover;
@@ -472,7 +465,7 @@ ul {
   }
   html body main .fading {
     opacity: 0;
-    transition: opacity 0.5s ease; /* Ajoutez une transition pour un effet de fondu */
+    transition: opacity 0.5s ease;
   }
   html body main section .null {
     width: 10px;
@@ -685,7 +678,6 @@ ul {
   html body main .marquee .swipper {
     position: absolute;
     top: 50%;
-    /* bottom: 0; */
     right: 0;
     left: 0;
     transform: translate(0%, -50%);
@@ -715,7 +707,6 @@ ul {
     overflow: hidden;
   }
   html body main .marquee .swipper .swiper-container--marquee .swiper-slide div:last-child img {
-    /* display: block; */
     position: relative;
     left: -50%;
     width: 500px;
@@ -730,8 +721,8 @@ ul {
     display: block;
     overflow: hidden;
     overflow-x: hidden;
-    -ms-overflow-style: none; /* IE and Edge */
-    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;
+    scrollbar-width: none;
     overflow-x: hidden;
   }
   html body main .section-title h2 {
@@ -943,7 +934,7 @@ ul {
   html body main .container-selected-work div .selected-work-swipper .swiper-container--selected-work .swiper-wrapper .swiper-slide .slide-container span picture {
     overflow: hidden;
     margin: 0 auto;
-    border-radius: 25px;
+    border-radius: 12px;
     background: transparent;
     height: 40vw;
     width: 65vw;
@@ -1007,14 +998,13 @@ ul {
     position: absolute;
     top: 50%;
     right: 0;
-    transform: translate(0%, -50%);
+    transform: translate(0%, 50%);
     width: 100vw;
     height: 50vh;
-    opacity: 0;
-    transition: opacity 1s ease-in-out;
+    transition: transform 1s ease-in-out;
   }
   html body main .container-selected-work div .selected-work-swipper .swiper-container--selected-work .swiper-wrapper .multi-mork .slide-container-multi .slide-container-multi-addendum-container.visible {
-    opacity: 1; /* Fade in */
+    transform: translate(0%, -50%);
   }
   html body main .container-selected-work div .selected-work-swipper .swiper-container--selected-work .swiper-wrapper .multi-mork .slide-container-multi .slide-container-multi-addendum-content {
     display: flex;
@@ -1022,21 +1012,6 @@ ul {
     position: relative;
     top: 50%;
     transform-origin: center;
-    transform: translate3d(0%, 150%, 200px) rotateX(-5deg) rotateY(-70deg) rotateZ(5deg) translate(0%, -50%) scale(1);
-  }
-  html body main .container-selected-work div .selected-work-swipper .swiper-container--selected-work .swiper-wrapper .multi-mork .slide-container-multi .slide-container-multi-addendum-container.visible .slide-container-multi-addendum-content {
-    animation: addendum 5s forwards; /* Animation de 5 secondes qui s'arrête à la dernière image */
-  }
-  @keyframes addendum {
-    0%, 20% {
-      transform: translate3d(0%, 150%, 200px) rotateX(-5deg) rotateY(-70deg) rotateZ(5deg) translate(0%, -50%) scale(1);
-    }
-    20%, 60% {
-      transform: translate3d(0%, 0%, 130px) rotateX(-5deg) rotateY(-10deg) rotateZ(0deg) translate(0%, -50%) scale(1);
-    }
-    60%, 100% {
-      transform: translate3d(7%, 0%, 130px) rotateX(0deg) rotateY(21deg) rotateZ(-5deg) translate(0%, -50%) scale(0.85);
-    }
   }
   html body main .container-selected-work div .selected-work-swipper .swiper-container--selected-work .swiper-wrapper .multi-mork .slide-container-multi .addendum-first-object {
     width: 34%;
@@ -1045,14 +1020,24 @@ ul {
     position: relative;
     z-index: -1;
     left: 15px;
-    animation: moveRight 750ms forwards 3s, rotateInfinite 1.818s linear infinite 3s; /* 3s delay */
   }
   html body main .container-selected-work div .selected-work-swipper .swiper-container--selected-work .swiper-wrapper .multi-mork .slide-container-multi .addendum-first-object img,
 html body main .container-selected-work div .selected-work-swipper .swiper-container--selected-work .swiper-wrapper .multi-mork .slide-container-multi .addendum-second-object img {
-    width: 190px;
+    width: 50vw;
   }
   html body main .container-selected-work div .selected-work-swipper .swiper-container--selected-work .swiper-wrapper .multi-mork .slide-container-multi .addendum-second-object img {
     scale: 0.95;
+  }
+  @keyframes addendum {
+    0%, 20% {
+      transform: translate3d(5%, 150%, 250px) rotateX(-5deg) rotateY(-70deg) rotateZ(5deg) translate(0%, -50%) scale(0.85);
+    }
+    20%, 60% {
+      transform: translate3d(5%, 0%, 250px) rotateX(-5deg) rotateY(-10deg) rotateZ(0deg) translate(0%, -50%) scale(0.85);
+    }
+    60%, 100% {
+      transform: translate3d(5%, 0%, 250px) rotateX(0deg) rotateY(21deg) rotateZ(-5deg) translate(0%, -50%) scale(0.75);
+    }
   }
   @keyframes rotateInfinite {
     from {
@@ -1061,6 +1046,24 @@ html body main .container-selected-work div .selected-work-swipper .swiper-conta
     to {
       transform: rotate(360deg);
     }
+  }
+  @keyframes vinylout {
+    from {
+      width: 0%;
+    }
+    to {
+      width: 30%;
+    }
+  }
+  html body main .container-selected-work div .selected-work-swipper .swiper-container--selected-work .swiper-wrapper .multi-mork .slide-container-multi .slide-container-multi-addendum-container.visible .slide-container-multi-addendum-content {
+    opacity: 1;
+    animation: addendum 5s forwards;
+  }
+  html body main .container-selected-work div .selected-work-swipper .swiper-container--selected-work .swiper-wrapper .multi-mork .slide-container-multi .slide-container-multi-addendum-container.visible .slide-container-multi-addendum-content .addendum-first-object {
+    animation: vinylout 3s ease-out forwards;
+  }
+  html body main .container-selected-work div .selected-work-swipper .swiper-container--selected-work .swiper-wrapper .multi-mork .slide-container-multi .slide-container-multi-addendum-container.visible .slide-container-multi-addendum-content .addendum-second-object {
+    animation: rotateInfinite 1.818s linear infinite;
   }
   html body main .container-selected-work div .selected-work-swipper .swiper-container--selected-work .swiper-wrapper .multi-mork .slide-container-multi .slide-content-multi-frt {
     display: flex;
@@ -1152,7 +1155,6 @@ html body main .container-selected-work div .selected-work-swipper .swiper-conta
   }
   html body main .container-selected-work div .selected-work-controller .info-content {
     display: block;
-    /* height: 200px; */
   }
   html body main .container-selected-work div .selected-work-controller .info-content .info-item {
     position: absolute;
@@ -1668,26 +1670,45 @@ html body main section.container-another-work div section.container-website-work
     align-items: flex-end;
   }
   html body footer .contact-form-container .contacts .socials {
+    display: flex;
+    margin: 1.75rem 0;
     flex-direction: column;
     align-items: start;
-    gap: 1em;
-    width: 50px;
-    margin: 1.75rem 0 0 0;
   }
   html body footer .contact-form-container .contacts .socials li {
-    width: 48px;
-    height: 48px;
-    border-radius: 100%;
+    background-color: inherit;
+    position: relative;
+    width: inherit;
+    border-radius: inherit;
+    height: inherit;
+    margin: 0;
   }
   html body footer .contact-form-container .contacts .socials li a {
-    justify-content: center;
-    height: 100%;
+    height: 45px;
+    width: 45px;
   }
   html body footer .contact-form-container .contacts .socials li a i {
-    font-size: 3.25rem;
-    font-size: 3rem;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    font-size: 2rem;
     color: #fcf5eb;
-    padding: 3px;
+    margin: 0 auto;
+    top: 3px;
+    justify-content: center;
+    margin: 12px 0;
+  }
+  html body footer .contact-form-container .contacts .socials li span {
+    position: absolute;
+    top: 0;
+    width: 45px;
+    height: 45px;
+    border-radius: 100%;
+    background-color: #070000;
+    margin: 0.25rem 0;
+    scale: 1;
+    transition: 0.25s ease-in-out;
   }
   html body footer .contact-form-container .contacts .contact-info {
     width: -moz-fit-content;
@@ -1710,7 +1731,7 @@ html body main section.container-another-work div section.container-website-work
   html body main .star-warp-video {
     display: block;
     opacity: 1;
-    transition: opacity 0.5s ease; /* Ajoutez une transition pour un effet de fondu */
+    transition: opacity 0.5s ease;
   }
   html body main .star-warp-video video {
     -o-object-fit: cover;
@@ -1723,7 +1744,7 @@ html body main section.container-another-work div section.container-website-work
   }
   html body main .star-warp-video.fading {
     opacity: 0;
-    transition: opacity 0.5s ease; /* Ajoutez une transition pour un effet de fondu */
+    transition: opacity 0.5s ease;
   }
   .section-title {
     min-height: 150vw;
@@ -1756,6 +1777,22 @@ a {
   }
 }
 @media screen and (min-width: 920px) {
+  html body header .loader .video-front {
+    width: 25vw;
+  }
+  html body main .container-selected-work div .selected-work-swipper .swiper-container--selected-work .swiper-wrapper .multi-mork .slide-container-multi .slide-container-multi-addendum-container.visible {
+    transform: translate(-40%, -50%);
+  }
+  html body main .container-selected-work div .selected-work-swipper .swiper-container--selected-work .swiper-wrapper .multi-mork .slide-container-multi .slide-container-multi-addendum-container {
+    transform: translate(-35%, 150%);
+  }
+  html body main .container-selected-work div .selected-work-swipper .swiper-container--selected-work .swiper-wrapper .multi-mork .slide-container-multi .addendum-first-object img,
+html body main .container-selected-work div .selected-work-swipper .swiper-container--selected-work .swiper-wrapper .multi-mork .slide-container-multi .addendum-second-object img {
+    width: 55vw;
+  }
+  html body main .container-selected-work div .selected-work-swipper .swiper-container--selected-work .swiper-wrapper .multi-mork .slide-container-multi .addendum-first-object {
+    width: 45%;
+  }
   html body main section.section-title h2 div:nth-child(1) span:nth-child(9),
 html body main section.section-title h2 div:nth-child(2) span:nth-child(9),
 html body main section.section-title h2 div:nth-child(3) span:nth-child(9),
@@ -1908,7 +1945,6 @@ html body main section.section-title h2 div:last-child span:nth-child(9) {
   }
   html body main section.container-selected-work .selected-work-content div .selected-work-swipper .setlist-for-selected-work .swiper-container--selected-work .swiper-wrapper .swiper-slide {
     padding: 0 25%;
-    overflow: hidden;
   }
   html body main section.container-selected-work .selected-work-content div .selected-work-swipper .setlist-for-selected-work .swiper-container--selected-work .swiper-wrapper .swiper-slide .slide-container span:last-child picture img {
     width: 25%;

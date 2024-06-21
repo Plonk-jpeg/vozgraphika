@@ -1,24 +1,61 @@
-// Fonction pour détecter un appareil mobile ou un PC avec un écran tactile
-function isMobileOrTouchDevice() {
-  return /Mobi|Android|Touch/i.test(navigator.userAgent);
-}
-
 document.addEventListener("DOMContentLoaded", function () {
   let preventRemoveFading = false;
-  const videoElement = document.querySelector('.star-warp-video');
 
+  function addFadingClass(element) {
+    if (element) {
+      element.classList.add('fading');
+    }
+  }
+  const socialLinks = document.querySelectorAll(".socials a");
+  const videoElement = document.querySelector('.star-warp-video');
+  const loader = document.querySelector('.loader');
+  const videoFront = document.querySelector('.video-front');
+  const videoBg = document.querySelector('.video-bg video');
+  let videosLoaded = false;
+  let pageLoaded = false;
+
+  // Function to detect a mobile or touch device
+  function isMobileOrTouchDevice() {
+    return /Mobi|Android|Touch/i.test(navigator.userAgent);
+  }
+
+  // Function to check if the screen is desktop-sized
   function isDesktop() {
     return window.innerWidth > 1024;
   }
 
-  if (videoElement && !isDesktop()) {
-    videoElement.style.display = 'none';
+  // Function to hide the loader
+  function hideLoader(loader) {
+    loader.classList.add('hidden');
+    loader.addEventListener('transitionend', () => {
+      loader.remove();
+    });
   }
 
-  function addFadingClass() {
-    if (videoElement) {
-      videoElement.classList.add('fading');
+  // Function to check if both videos are loaded
+  function checkVideosLoaded(videoFront, videoBg, loader, pageLoaded, hideLoader) {
+    if (videoFront.readyState >= 3 && videoBg.readyState >= 3) {
+      if (pageLoaded) {
+        hideLoader(loader);
+      }
     }
+  }
+
+  // Function to handle the intersection observer callback
+  function observerCallback(entries) {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        if (!preventRemoveFading) {
+          videoElement.classList.remove('fading');
+        }
+      } else {
+        videoElement.classList.add('fading');
+      }
+    });
+  }
+
+  if (videoElement && !isDesktop()) {
+    videoElement.style.display = 'none';
   }
 
   window.onload = function () {
@@ -41,6 +78,34 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   };
 
+  // Event listeners for videos to check if they are ready
+  videoFront.addEventListener('canplaythrough', () => checkVideosLoaded(videoFront, videoBg, loader, pageLoaded, hideLoader));
+  videoBg.addEventListener('canplaythrough', () => checkVideosLoaded(videoFront, videoBg, loader, pageLoaded, hideLoader));
+
+  // Fallback to hide loader after 3 seconds if videos take too long
+  const timeout = setTimeout(() => {
+    if (!videosLoaded) {
+      hideLoader(loader);
+    }
+  }, 3000);
+
+  // Hide loader when the page is fully loaded
+  window.addEventListener('load', () => {
+    pageLoaded = true;
+    clearTimeout(timeout);
+    if (videosLoaded) {
+      hideLoader(loader);
+    }
+  });
+
+  // Set random video background
+  const randomNum = Math.floor(Math.random() * 14) + 1;
+  const videoPath = `assets/video/video_${randomNum}.webm`;
+  const logoElement = document.getElementById('randomBackground');
+  logoElement.src = videoPath;
+  logoElement.load();
+
+  // Lazy load images
   const lazyImages = document.querySelectorAll('img[loading="lazy"]');
   if ("IntersectionObserver" in window) {
     const lazyImageObserver = new IntersectionObserver((entries, observer) => {
@@ -63,18 +128,31 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  const menuButton = document.querySelector("html body header nav#header-menu-button div");
-  const menuPanel = document.querySelector("html body header nav#header-menu-button .menu-panel ul");
+  // Menu button click event
+  const menuButton = document.querySelector(".menu-btn button");
+  const menuSpan = document.querySelector(".menu-btn span");
+  const menuPanel = document.querySelector("#header-menu-button .menu-panel ul");
 
-  menuButton.onclick = function () {
-    document.querySelector("button").classList.toggle("js-active");
+  function toggleMenu() {
+    menuButton.classList.toggle("js-active");
     menuPanel.classList.toggle("js-active");
-    addFadingClass();
-  };
 
+    if (menuButton.classList.contains("js-active")) {
+      videoElement.classList.add("hidden-fade");
+      videoElement.addEventListener("transitionend", function handleTransitionEnd() {
+        videoElement.remove();
+      });
+    }
+
+    addFadingClass(videoElement);
+  }
+
+  menuButton.addEventListener("click", toggleMenu);
+  menuSpan.addEventListener("click", toggleMenu);
+  // Modal functionality
   const buttons = document.querySelectorAll("section.container-blender-work ul.blender-list li button");
-  const modal = document.querySelector("html body .blender-reveal");
-  const closeModalButton = document.querySelector("html main .blender-reveal button.close-modal");
+  const modal = document.querySelector(".blender-reveal");
+  const closeModalButton = document.querySelector(".blender-reveal button.close-modal");
 
   buttons.forEach(button => {
     button.addEventListener("click", function () {
@@ -88,6 +166,7 @@ document.addEventListener("DOMContentLoaded", function () {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 
+  // Scroll event for opacity elements
   const opacityElements = document.querySelectorAll(".visible-on-scroll");
   let isScrolling;
   let totalDeltaY = 0;
@@ -104,7 +183,6 @@ document.addEventListener("DOMContentLoaded", function () {
         videoElement.classList.remove('fading');
       }
     }
-    console.log("Total DeltaY:", totalDeltaY);
     opacityElements.forEach((x) => x.classList.toggle("fade"));
     clearTimeout(isScrolling);
     isScrolling = setTimeout(() => {
@@ -114,9 +192,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
   window.addEventListener("wheel", handleScroll);
 
+  // Navigation buttons click event
   const navButtons = document.querySelectorAll(".slct-btn");
   navButtons.forEach(button => {
-    button.addEventListener('click', function (e) {
+    button.addEventListener('click', function () {
       preventRemoveFading = true;
       setTimeout(() => {
         preventRemoveFading = false;
@@ -124,26 +203,74 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  const observerOptions = {
-    root: null,
-    rootMargin: '0px',
-    threshold: 0.1
-  };
-
-  function observerCallback(entries, observer) {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        if (!preventRemoveFading) {
-          videoElement.classList.remove('fading');
-        }
-      } else {
-        videoElement.classList.add('fading');
-      }
-    });
-  }
-
+  // Intersection observer for fading effect on video element
   if (videoElement && "IntersectionObserver" in window) {
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.1
+    };
     const observer = new IntersectionObserver(observerCallback, observerOptions);
     observer.observe(videoElement);
   }
+
+  // Intersection observer for addendum container
+  let timer;
+  const addendumObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        timer = setTimeout(() => {
+          const addendumContainer = document.querySelector('.slide-container-multi-addendum-container');
+          addendumContainer.classList.add('visible');
+        }, 3000);
+      } else {
+        clearTimeout(timer);
+      }
+    });
+  }, {
+    threshold: 0.1
+  });
+
+  const addendumElement = document.querySelector('.slide-content-multi-bg');
+  addendumObserver.observe(addendumElement);
+
+  // Handle click on social links
+  socialLinks.forEach(link => {
+    link.addEventListener("click", function (event) {
+      event.preventDefault();  // Empêche la redirection immédiate
+
+      const span = this.nextElementSibling;
+      if (span) {
+        span.style.transform = 'scale(500)';
+
+        setTimeout(() => {
+          window.location.href = this.href;  // Redirection après 0.25s
+
+          // Remet l'échelle à son état initial après 0.25s
+          setTimeout(() => {
+            span.style.transform = 'scale(1)';
+          }, 250);
+        }, 250);
+      }
+    });
+  });
+  socialLinks.forEach(link => {
+    link.addEventListener("click", function (event) {
+      event.preventDefault();  // Empêche la redirection immédiate
+
+      const span = this.nextElementSibling;
+      if (span) {
+        span.style.transform = 'scale(500)';
+
+        setTimeout(() => {
+          window.location.href = this.href;  // Redirection après 0.25s
+
+          // Remet l'échelle à son état initial après 0.25s
+          setTimeout(() => {
+            span.style.transform = 'scale(1)';
+          }, 250);
+        }, 250);
+      }
+    });
+  });
 });

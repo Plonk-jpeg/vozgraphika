@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,67 +14,9 @@
     <script src="assets/js/swiper-bundle.min.js" type="text/javascript"></script>
     <script src="assets/js/script.js" type="text/javascript"></script>
     <script src="https://kit.fontawesome.com/7ee3d41dde.js" crossorigin="anonymous"></script>
-
 </head>
-
 <body data-scroll-container>
     <header>
-        <script>
-            document.addEventListener('DOMContentLoaded', function () {
-                const loader = document.querySelector('.loader');
-                const videoFront = document.querySelector('.video-front');
-                const videoBg = document.querySelector('.video-bg video');
-                let videosLoaded = false;
-                let pageLoaded = false;
-
-                // Function to hide the loader
-                function hideLoader() {
-                    console.log("Hiding loader");
-                    loader.classList.add('hidden');
-                    loader.addEventListener('transitionend', () => {
-                        console.log("Loader removed from DOM");
-                        loader.remove();
-                    });
-                }
-
-                // Function to check if both videos are loaded
-                function checkVideosLoaded() {
-                    console.log("Checking if videos are loaded");
-                    if (videoFront.readyState >= 3 && videoBg.readyState >= 3) {
-                        console.log("Both videos are loaded");
-                        videosLoaded = true;
-                        if (pageLoaded) {
-                            hideLoader();
-                        }
-                    }
-                }
-
-                // Event listeners for videos to check if they are ready
-                videoFront.addEventListener('canplaythrough', checkVideosLoaded);
-                videoBg.addEventListener('canplaythrough', checkVideosLoaded);
-
-                // Fallback to hide loader after 3 seconds if videos take too long
-                const timeout = setTimeout(() => {
-                    console.log("Timeout reached, hiding loader");
-                    if (!videosLoaded) {
-                        hideLoader();
-                    }
-                }, 3000);
-
-                // Hide loader when the page is fully loaded
-                window.addEventListener('load', () => {
-                    console.log("Page fully loaded");
-                    pageLoaded = true;
-                    clearTimeout(timeout); // Clear the timeout if the page loads before 3 seconds
-                    if (videosLoaded) {
-                        hideLoader();
-                    }
-                });
-            });
-        </script>
-
-
-
         <section class="loader">
             <video autoplay muted loop class="video-front" preload="auto">
                 <source src="assets/video/loader.webm" type="video/webm">
@@ -106,45 +47,21 @@
                         <button class="slct-btn" id="menu3" href="">collection of 3d</button>
                     </li>
                     <div class="socials">
-                        <li>
                             <a href="https://www.instagram.com/plonnnk/">
-                                <p>instagram</p>
+                                instagram
                             </a>
-                        </li>
-                        <li>
                             <a href="https://www.linkedin.com/in/theo-sylvoz-498480187/">
-
-                                <p>linkedin</p>
+                                linkedin
                             </a>
-                        </li>
-                        <li>
                             <a href="https://github.com/Plonk-jpeg">
-                                <p>github</p>
+                                github
                             </a>
-                        </li>
                     </div>
-                    <li class="menu-slct">contact</li>
+
                 </ul>
             </div>
         </nav>
         <div class="header-logo">
-            <script>
-                document.addEventListener('DOMContentLoaded', function () {
-                    // Générer un nombre aléatoire entre 1 et 14
-                    const randomNum = Math.floor(Math.random() * 14) + 1;
-
-                    // Construire le chemin de la vidéo
-                    const videoPath = `assets/video/video_${randomNum}.webm`;
-                    // Sélectionner l'élément vidéo
-                    const videoElement = document.getElementById('randomBackground');
-
-                    // Définir la source de la vidéo
-                    videoElement.src = videoPath;
-
-                    // Charger la vidéo
-                    videoElement.load();
-                });
-            </script>
             <video id="randomBackground" autoplay muted loop class="background-container"></video>
         </div>
     </header>
@@ -153,7 +70,6 @@
         </div>
         <section data-scroll-section>
             <span data-scroll>
-                
             </span>
         </section>
         <section class="marquee section-size" data-scroll-section>
@@ -162,10 +78,10 @@
                     <div class="swiper-wrapper">
                         <div class="swiper-slide">
                             <div>
-                                <img src="assets/img/voz.webp" alt="" />
+                                <img src="assets/img/voz.webp" alt="image de vozgraphika" />
                             </div>
                             <div>
-                                <img src="assets/img/bg-slct.webp" alt="" />
+                                <img src="assets/img/bg-slct.webp" alt="image d'arriére plan coloré" />
                             </div>
                         </div>
                     </div>
@@ -185,7 +101,7 @@
                     <span>in</span>
                     <span class="unlerp">Angouleme</span>
                 </div>
-                <div class="visible-on-scroll" data-scroll data-scroll-delay="0.3" data-scroll-speed="5">
+                <div class="visible-on-scroll" data-scroll data-scroll-delay="0.32" data-scroll-speed="5">
                     <span>I'm a</span>
                     <span>french</span>
                     <span>graphic</span>
@@ -196,7 +112,7 @@
                     <span>in</span>
                     <span class="unlerp">Angouleme</span>
                 </div>
-                <div class="visible-on-scroll" data-scroll data-scroll-delay="0.4" data-scroll-speed="5">
+                <div class="visible-on-scroll" data-scroll data-scroll-delay="0.44" data-scroll-speed="5">
                     <span>I'm a</span>
                     <span>french</span>
                     <span>graphic</span>
@@ -207,7 +123,7 @@
                     <span>in</span>
                     <span class="unlerp">Angouleme</span>
                 </div>
-                <div class="visible-on-scroll" data-scroll data-scroll-delay="0.5" data-scroll-speed="5">
+                <div class="visible-on-scroll" data-scroll data-scroll-delay="0.56" data-scroll-speed="5">
                     <span>I'm a</span>
                     <span>french</span>
                     <span>graphic</span>
@@ -218,7 +134,7 @@
                     <span>in</span>
                     <span class="unlerp">Angouleme</span>
                 </div>
-                <div class="visible-on-scroll" data-scroll data-scroll-delay="0.6" data-scroll-speed="5">
+                <div class="visible-on-scroll" data-scroll data-scroll-delay="0.68" data-scroll-speed="5">
                     <span>I'm a</span>
                     <span>french</span>
                     <span>graphic</span>
@@ -229,7 +145,7 @@
                     <span>in</span>
                     <span class="unlerp">Angouleme</span>
                 </div>
-                <div class="visible-on-scroll" data-scroll data-scroll-delay="0.7" data-scroll-speed="5">
+                <div class="visible-on-scroll" data-scroll data-scroll-delay="0.8" data-scroll-speed="5">
                     <span>I'm a</span>
                     <span>french</span>
                     <span>graphic</span>
@@ -253,7 +169,6 @@
                 </div>
             </h2>
         </section>
-
         <section class="container-selected-work setlist-for-selected-work" id="setList-1" data-scroll-section>
             <div class="blurry-bg">
             </div>
@@ -263,7 +178,7 @@
                         selected <span>work</span>
                     </h2>
                     <p>
-                        Sang sueur et larmes
+                        Blood, sweat and tears.
                     </p>
                 </div>
                 <div>
@@ -272,7 +187,7 @@
                             <div class="swiper-container--selected-work">
                                 <div class="swiper-wrapper">
 
-                                    <div class="swiper-slide multi-mork">
+                                    <div class="swiper-slide multi-mork" style="overflow: hidden;">
 
                                         <div class="slide-container-multi">
                                             <ul class="slide-content-multi-bg">
@@ -280,7 +195,7 @@
                                                     <span class="bg">
                                                         <picture>
                                                             <img data-src="assets/img/work/accord-nomades-bg.webp"
-                                                                alt="" loading="lazy" />
+                                                                alt="arriere-plan accord nomades" loading="lazy" />
                                                         </picture>
                                                     </span>
                                                 </li>
@@ -288,7 +203,7 @@
                                                     <span class="bg">
                                                         <picture>
                                                             <img data-src="assets/img/work/accord-nomades-bg.webp"
-                                                                alt="" loading="lazy" />
+                                                                alt="arriere-plan accord nomades" loading="lazy" />
                                                         </picture>
                                                     </span>
                                                 </li>
@@ -296,7 +211,7 @@
                                                     <span class="bg">
                                                         <picture>
                                                             <img data-src="assets/img/work/accord-nomades-bg.webp"
-                                                                alt="" loading="lazy" />
+                                                                alt="arriere-plan accord nomades" loading="lazy" />
                                                         </picture>
                                                     </span>
                                                 </li>
@@ -304,42 +219,18 @@
                                                     <span class="bg">
                                                         <picture>
                                                             <img data-src="assets/img/work/accord-nomades-bg.webp"
-                                                                alt="" loading="lazy" />
+                                                                alt="arriere-plan accord nomades" loading="lazy" />
                                                         </picture>
                                                     </span>
                                                 </li>
                                             </ul>
-                                            <script>
-    document.addEventListener('DOMContentLoaded', () => {
-        let timer;
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    timer = setTimeout(() => {
-                        const addendumContainer = document.querySelector('.slide-container-multi-addendum-container');
-                        addendumContainer.classList.add('visible');
-                    }, 3000); // Delay of 3 seconds
-                } else {
-                    clearTimeout(timer); // Clear the timer if the element is no longer intersecting
-                }
-            });
-        }, {
-            threshold: 0.1 // Adjust based on when you consider the element "visible"
-        });
-
-        const element = document.querySelector('.slide-content-multi-bg');
-        observer.observe(element);
-    });
-    
-                                            </script>
                                             <div class="slide-container-multi-addendum-container">
                                                 <div class="slide-container-multi-addendum-content">
                                                     <div class="addendum-first-object">
-                                                        <img src="assets/img/work/pochette.png" alt="">
+                                                        <img src="assets/img/work/pochette.png" alt="image du projet de pochette vinyle accord nomades">
                                                     </div>
                                                     <div class="addendum-second-object">
-                                                        <img src="assets/img/work/vinyle.png" alt="">
+                                                        <img src="assets/img/work/vinyle.png" alt="image du vinyle accord nomades">
                                                     </div>
                                                 </div>
                                             </div>
@@ -348,7 +239,7 @@
                                                     <span class="frt">
                                                         <picture>
                                                             <img data-src="assets/img/work/accord-nomades-poch-avant.webp"
-                                                                alt="" loading="lazy" />
+                                                                alt="recto du projet de pochette vinyle accord nomades" loading="lazy" />
                                                         </picture>
                                                     </span>
                                                 </li>
@@ -356,7 +247,7 @@
                                                     <span class="frt">
                                                         <picture>
                                                             <img data-src="assets/img/work/accord-nomades-poch-arriere.webp"
-                                                                alt="" loading="lazy" />
+                                                                alt="verso du projet de pochette vinyle accord nomades" loading="lazy" />
                                                         </picture>
                                                     </span>
                                                 </li>
@@ -364,7 +255,7 @@
                                                     <span class="frt">
                                                         <picture>
                                                             <img data-src="assets/img/work/accord-nomades-maca-arriere.webp"
-                                                                alt="" loading="lazy" />
+                                                                alt="recto du macaron du projet de vinyle accord nomades" loading="lazy" />
                                                         </picture>
                                                     </span>
                                                 </li>
@@ -372,13 +263,12 @@
                                                     <span class="frt">
                                                         <picture>
                                                             <img data-src="assets/img/work/accord-nomades-maca-avant.webp"
-                                                                alt="" loading="lazy" />
+                                                                alt="verso du macaron du projet de vinyle accord nomades" loading="lazy" />
                                                         </picture>
                                                     </span>
                                                 </li>
                                             </ul>
                                         </div>
-
                                     </div>
                                     <div class="swiper-slide multi-mork">
                                         <div class="slide-container-multi">
@@ -386,7 +276,7 @@
                                                 <li>
                                                     <span class="bg">
                                                         <picture>
-                                                            <img data-src="assets/img/work/ufo.webp" alt=""
+                                                            <img data-src="assets/img/work/ufo.webp" alt="arriére-plan concept d'affiche planete pour soirée geek"
                                                                 loading="lazy" />
                                                         </picture>
                                                     </span>
@@ -394,7 +284,7 @@
                                                 <li>
                                                     <span class="bg">
                                                         <picture>
-                                                            <img data-src="assets/img/work/robot.webp" alt=""
+                                                            <img data-src="assets/img/work/robot.webp" alt="arriére-plan concept d'affiche robot pour soirée geek"
                                                                 loading="lazy" />
                                                         </picture>
                                                     </span>
@@ -403,14 +293,14 @@
                                                     <span class="bg">
                                                         <picture>
                                                             <img data-src="assets/img/work/soireegeek-rpg-bg.webp"
-                                                                alt="" loading="lazy" />
+                                                                alt="arriére-plan concept d'affiche role play game pour soirée geek" loading="lazy" />
                                                         </picture>
                                                     </span>
                                                 </li>
                                                 <li>
                                                     <span class="bg">
                                                         <picture>
-                                                            <img data-src="assets/img/work/ufo.webp" alt=""
+                                                            <img data-src="assets/img/work/ufo.webp" alt="arriére-plan concept d'affiche genkidama pour soirée geek"
                                                                 loading="lazy" />
                                                         </picture>
                                                     </span>
@@ -420,7 +310,7 @@
                                                 <li>
                                                     <span class="frt">
                                                         <picture>
-                                                            <img data-src="assets/img/work/ufo-pers.webp" alt=""
+                                                            <img data-src="assets/img/work/ufo-pers.webp" alt="avant-plan concept d'affiche planete pour soirée geek"
                                                                 loading="lazy" />
                                                         </picture>
                                                     </span>
@@ -428,7 +318,7 @@
                                                 <li>
                                                     <span class="frt">
                                                         <picture>
-                                                            <img data-src="assets/img/work/robot-pers.webp" alt=""
+                                                            <img data-src="assets/img/work/robot-pers.webp" alt="avant-plan concept d'affiche robot pour soirée geek"
                                                                 loading="lazy" />
                                                         </picture>
                                                     </span>
@@ -437,7 +327,7 @@
                                                     <span class="frt">
                                                         <picture>
                                                             <img data-src="assets/img/work/soireegeek-rpg-front.webp"
-                                                                alt="" loading="lazy" />
+                                                                alt="avant-plan concept d'affiche role play game pour soirée geek" loading="lazy" />
                                                         </picture>
                                                     </span>
                                                 </li>
@@ -445,7 +335,7 @@
                                                     <span class="frt">
                                                         <picture>
                                                             <img data-src="assets/img/work/soiree-geek-sangoku-front.webp"
-                                                                alt="" loading="lazy" />
+                                                                alt="avant-plan concept d'affiche genkidama pour soirée geek" loading="lazy" />
                                                         </picture>
                                                     </span>
                                                 </li>
@@ -453,18 +343,17 @@
 
                                         </div>
                                     </div>
-
                                     <div class="swiper-slide">
                                         <div class="slide-container">
                                             <span>
                                                 <picture>
-                                                    <img data-src="assets/img/work/aispace.webp" alt=""
+                                                    <img data-src="assets/img/work/aispace.webp" alt="fond etoilé vectorisé"
                                                         loading="lazy" />
                                                 </picture>
                                             </span>
                                             <span>
                                                 <picture>
-                                                    <img data-src="assets/img/work/aispace-pers.webp" alt=""
+                                                    <img data-src="assets/img/work/aispace-pers.webp" alt="femme sortant d'un portail spatio temporel"
                                                         loading="lazy" />
                                                 </picture>
                                             </span>
@@ -474,30 +363,13 @@
                                         <div class="slide-container">
                                             <span>
                                                 <picture>
-                                                    <img data-src="assets/img/work/pale-yellow-bg.webp" alt=""
+                                                    <img data-src="assets/img/work/pale-yellow-bg.webp" alt="fond jaune uni"
                                                         loading="lazy" />
                                                 </picture>
                                             </span>
                                             <span>
                                                 <picture>
-                                                    <img data-src="assets/img/work/vector-a-portrait.webp" alt=""
-                                                        loading="lazy" />
-                                                </picture>
-                                            </span>
-                                        </div>
-                                    </div>
-
-                                    <div class="swiper-slide">
-                                        <div class="slide-container">
-                                            <span>
-                                                <picture>
-                                                    <img data-src="assets/img/work/les-salons-bleu-bg.webp" alt=""
-                                                        loading="lazy" />
-                                                </picture>
-                                            </span>
-                                            <span>
-                                                <picture>
-                                                    <img data-src="assets/img/work/les-salons-bleu-front.webp" alt=""
+                                                    <img data-src="assets/img/work/vector-a-portrait.webp" alt="illustration vectorielle de visage"
                                                         loading="lazy" />
                                                 </picture>
                                             </span>
@@ -507,29 +379,13 @@
                                         <div class="slide-container">
                                             <span>
                                                 <picture>
-                                                    <img data-src="assets/img/work/les-salons-bleu-bg.webp" alt=""
+                                                    <img data-src="assets/img/work/les-salons-bleu-bg.webp" alt="image de paysage maritime"
                                                         loading="lazy" />
                                                 </picture>
                                             </span>
                                             <span>
                                                 <picture>
-                                                    <img data-src="assets/img/work/alice-pers.webp" alt=""
-                                                        loading="lazy" />
-                                                </picture>
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <div class="slide-container">
-                                            <span>
-                                                <picture>
-                                                    <img data-src="assets/img/work/anadore-poster.webp" alt=""
-                                                        loading="lazy" />
-                                                </picture>
-                                            </span>
-                                            <span>
-                                                <picture>
-                                                    <img data-src="assets/img/work/anadore-poster-front.webp" alt=""
+                                                    <img data-src="assets/img/work/les-salons-bleu-front.webp" alt="concept de logo pour tote-bag pour Les Salons Bleus"
                                                         loading="lazy" />
                                                 </picture>
                                             </span>
@@ -539,13 +395,45 @@
                                         <div class="slide-container">
                                             <span>
                                                 <picture>
-                                                    <img data-src="assets/img/work/les-salons-bleu-bg.webp" alt=""
+                                                    <img data-src="assets/img/work/les-salons-bleu-bg.webp" alt="image de paysage maritime"
                                                         loading="lazy" />
                                                 </picture>
                                             </span>
                                             <span>
                                                 <picture>
-                                                    <img data-src="assets/img/work/carte-art-nouveau.webp" alt=""
+                                                    <img data-src="assets/img/work/alice-pers.webp" alt="illustration vectorielle d'alice au pays des merveilles"
+                                                        loading="lazy" />
+                                                </picture>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <div class="slide-container">
+                                            <span>
+                                                <picture>
+                                                    <img data-src="assets/img/work/anadore-poster.webp" alt="arriere-plan vectorielle de nuage"
+                                                        loading="lazy" />
+                                                </picture>
+                                            </span>
+                                            <span>
+                                                <picture>
+                                                    <img data-src="assets/img/work/anadore-poster-front.webp" alt="illustration de robot rouge"
+                                                        loading="lazy" />
+                                                </picture>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <div class="slide-container">
+                                            <span>
+                                                <picture>
+                                                    <img data-src="assets/img/work/les-salons-bleu-bg.webp" alt="image de paysage maritime"
+                                                        loading="lazy" />
+                                                </picture>
+                                            </span>
+                                            <span>
+                                                <picture>
+                                                    <img data-src="assets/img/work/carte-art-nouveau.webp" alt="illustration de carte de tarot"
                                                         style="width: 50vw; height: auto;" loading="lazy" />
                                                 </picture>
                                             </span>
@@ -555,13 +443,13 @@
                                         <div class="slide-container" style="transform: scale(1.5)translate(0, -33%);">
                                             <span>
                                                 <picture>
-                                                    <img data-src="assets/img/work/art-nouveau-ludena.webp" alt=""
+                                                    <img data-src="assets/img/work/art-nouveau-ludena.webp" alt="illustration ariere plan style art nouveau"
                                                         loading="lazy" />
                                                 </picture>
                                             </span>
                                             <span>
                                                 <picture>
-                                                    <img data-src="assets/img/work/art-nouveau-ludena-front.webp" alt=""
+                                                    <img data-src="assets/img/work/art-nouveau-ludena-front.webp" alt="illustration style art nouveau"
                                                         loading="lazy" />
                                                 </picture>
                                             </span>
@@ -571,13 +459,13 @@
                                         <div class="slide-container" style="transform: scale(1.25)translate(0, -40%);">
                                             <span>
                                                 <picture>
-                                                    <img data-src="assets/img/work/car-back.webp" alt=""
+                                                    <img data-src="assets/img/work/car-back.webp" alt="illustration ariere plan style art nouveau"
                                                         loading="lazy" />
                                                 </picture>
                                             </span>
                                             <span>
                                                 <picture>
-                                                    <img data-src="assets/img/work/car-front.webp" alt=""
+                                                    <img data-src="assets/img/work/car-front.webp" alt="illustration style art nouveau"
                                                         loading="lazy" />
                                                 </picture>
                                             </span>
@@ -587,13 +475,13 @@
                                         <div class="slide-container">
                                             <span>
                                                 <picture>
-                                                    <img data-src="assets/img/work/lbdi-back.webp" alt=""
+                                                    <img data-src="assets/img/work/lbdi-back.webp" alt="arriere plan de poster coloré pour le bal imaginaire"
                                                         loading="lazy" />
                                                 </picture>
                                             </span>
                                             <span>
                                                 <picture>
-                                                    <img data-src="assets/img/work/lbdi.webp" alt="" loading="lazy" />
+                                                    <img data-src="assets/img/work/lbdi.webp" alt="affiche pour le bal imaginaire" loading="lazy" />
                                                 </picture>
                                             </span>
                                         </div>
@@ -602,13 +490,13 @@
                                         <div class="slide-container">
                                             <span>
                                                 <picture>
-                                                    <img data-src="assets/img/work/helene-back.webp" alt=""
+                                                    <img data-src="assets/img/work/helene-back.webp" alt="fond etoilé vectorielle violet"
                                                         loading="lazy" />
                                                 </picture>
                                             </span>
                                             <span>
                                                 <picture>
-                                                    <img data-src="assets/img/work/helene-front.webp" alt=""
+                                                    <img data-src="assets/img/work/helene-front.webp" alt="illustration vectorielle de jeune femme"
                                                         style="width: 50vw; height: auto;" loading="lazy" />
                                                 </picture>
                                             </span>
@@ -636,7 +524,7 @@
                                     <li>
                                         <div>
                                             <picture>
-                                                <img src="assets/img/icons/photoshop-icon.webp" alt="">
+                                                <img src="assets/img/icons/photoshop-icon.webp" alt="icone photoshop">
                                             </picture>
                                         </div>
                                     </li>
@@ -658,11 +546,10 @@
                                     <li>
                                         <div>
                                             <picture>
-                                                <img src="assets/img/icons/illustrator-icon.webp" alt="">
+                                                <img src="assets/img/icons/illustrator-icon.webp" alt="icone illustrator">
                                             </picture>
                                         </div>
                                     </li>
-
                                 </ul>
                             </div>
                             <div class="info-item ">
@@ -681,7 +568,7 @@
                                     <li>
                                         <div>
                                             <picture>
-                                                <img src="assets/img/icons/illustrator-icon.webp" alt="">
+                                                <img src="assets/img/icons/illustrator-icon.webp" alt="icone illustrator">
                                             </picture>
                                         </div>
                                     </li>
@@ -700,11 +587,10 @@
                                     </li>
                                 </ul>
                                 <ul>
-
                                     <li>
                                         <div>
                                             <picture>
-                                                <img src="assets/img/icons/illustrator-icon.webp" alt="">
+                                                <img src="assets/img/icons/illustrator-icon.webp" alt="icone illustrator">
                                             </picture>
                                         </div>
                                     </li>
@@ -726,14 +612,14 @@
                                     <li>
                                         <div>
                                             <picture>
-                                                <img src="assets/img/icons/illustrator-icon.webp" alt="">
+                                                <img src="assets/img/icons/illustrator-icon.webp" alt="icone illustrator">
                                             </picture>
                                         </div>
                                     </li>
                                     <li>
                                         <div>
                                             <picture>
-                                                <img src="assets/img/icons/photoshop-icon.webp" alt="">
+                                                <img src="assets/img/icons/photoshop-icon.webp" alt="icone photoshop">
                                             </picture>
                                         </div>
                                     </li>
@@ -755,7 +641,7 @@
                                     <li>
                                         <div>
                                             <picture>
-                                                <img src="assets/img/icons/illustrator-icon.webp" alt="">
+                                                <img src="assets/img/icons/illustrator-icon.webp" alt="icone illustrator">
                                             </picture>
                                         </div>
                                     </li>
@@ -777,7 +663,7 @@
                                     <li>
                                         <div>
                                             <picture>
-                                                <img src="assets/img/icons/illustrator-icon.webp" alt="">
+                                                <img src="assets/img/icons/illustrator-icon.webp" alt="icone illustrator">
                                             </picture>
                                         </div>
                                     </li>
@@ -799,7 +685,7 @@
                                     <li>
                                         <div>
                                             <picture>
-                                                <img src="assets/img/icons/sai-icon.webp" alt="">
+                                                <img src="assets/img/icons/sai-icon.webp" alt="icone sai">
                                             </picture>
                                         </div>
                                     </li>
@@ -821,7 +707,7 @@
                                     <li>
                                         <div>
                                             <picture>
-                                                <img src="assets/img/icons/sai-icon.webp" alt="">
+                                                <img src="assets/img/icons/sai-icon.webp" alt="icone sai">
                                             </picture>
                                         </div>
                                     </li>
@@ -843,21 +729,21 @@
                                     <li>
                                         <div>
                                             <picture>
-                                                <img src="assets/img/icons/illustrator-icon.webp" alt="">
+                                                <img src="assets/img/icons/illustrator-icon.webp" alt="icone illustrator">
                                             </picture>
                                         </div>
                                     </li>
                                     <li>
                                         <div>
                                             <picture>
-                                                <img src="assets/img/icons/photoshop-icon.webp" alt="">
+                                                <img src="assets/img/icons/photoshop-icon.webp" alt="icone photoshop">
                                             </picture>
                                         </div>
                                     </li>
                                     <li>
                                         <div>
                                             <picture>
-                                                <img src="assets/img/icons/sai-icon.webp" alt="">
+                                                <img src="assets/img/icons/sai-icon.webp" alt="icone sai">
                                             </picture>
                                         </div>
                                     </li>
@@ -879,7 +765,7 @@
                                     <li>
                                         <div>
                                             <picture>
-                                                <img src="assets/img/icons/illustrator-icon.webp" alt="">
+                                                <img src="assets/img/icons/illustrator-icon.webp" alt="icone illustrator">
                                             </picture>
                                         </div>
                                     </li>
@@ -901,7 +787,7 @@
                                     <li>
                                         <div>
                                             <picture>
-                                                <img src="assets/img/icons/illustrator-icon.webp" alt="">
+                                                <img src="assets/img/icons/illustrator-icon.webp" alt="icone illustrator">
                                             </picture>
                                         </div>
                                     </li>
@@ -979,7 +865,7 @@
                                             <i>0</i>
                                             <i>8</i>
                                         </span>
-                                        <span>Cartes Art Nouveau</span>
+                                        <span>Tarot Art Nouveau</span>
                                     </button>
                                 </li>
                                 <li>
@@ -1015,7 +901,7 @@
                                             <i>1</i>
                                             <i>2</i>
                                         </span>
-                                        <span>Helene</span>
+                                        <span>Hélène</span>
                                     </button>
                                 </li>
                             </ul>
@@ -1024,21 +910,6 @@
                 </div>
             </div>
         </section>
-
-        <!-- <section class="container-logotheque" data-scroll-section>
-            <section class="container-logotheque-work">
-                <div class="logotheque-work">
-                    <img src="assets/img/work/logotheque.gif" alt="">
-                </div>
-                <div class="logotheque-arch">
-                    <img src="assets/img/arche.webp" alt="">
-                </div>
-                <div class="selected-work-title">
-                    <h2>logo<br>playgronud</h2>
-                </div>
-            </section>
-        </section> -->
-
         <section class="container-another-work" data-scroll-section>
             <div>
                 <section class="container-website-work" id="setList-2">
@@ -1048,7 +919,7 @@
                     <div class="flex-container-wrap">
                         <div class="website-item">
                             <picture>
-                                <img src="assets/img/work/boml.webp" alt="">
+                                <img src="assets/img/work/boml.webp" alt="image de site web de brasserie imaginaire Beware of the magic lamb, projet web pour la validation de mon diplome de developemeur web">
                             </picture>
                             <div class="website-item-wrap">
                                 <div class="website-info">
@@ -1058,35 +929,35 @@
                                         <li>
                                             <div>
                                                 <picture>
-                                                    <img src="assets/img/icons/html-icon.webp" alt="">
+                                                    <img src="assets/img/icons/html-icon.webp" alt="icone html5">
                                                 </picture>
                                             </div>
                                         </li>
                                         <li>
                                             <div>
                                                 <picture>
-                                                    <img src="assets/img/icons/css-icon.webp" alt="">
+                                                    <img src="assets/img/icons/css-icon.webp" alt="icone css3">
                                                 </picture>
                                             </div>
                                         </li>
                                         <li>
                                             <div>
                                                 <picture>
-                                                    <img src="assets/img/icons/php-icon.webp" alt="">
+                                                    <img src="assets/img/icons/php-icon.webp" alt="icone php">
                                                 </picture>
                                             </div>
                                         </li>
                                         <li>
                                             <div>
                                                 <picture>
-                                                    <img src="assets/img/icons/javascript-icon.webp" alt="">
+                                                    <img src="assets/img/icons/javascript-icon.webp" alt="icone javascript">
                                                 </picture>
                                             </div>
                                         </li>
                                         <li>
                                             <div>
                                                 <picture>
-                                                    <img src="assets/img/icons/mysql-icon.webp" alt="">
+                                                    <img src="assets/img/icons/mysql-icon.webp" alt="icone mysql">
                                                 </picture>
                                             </div>
                                         </li>
@@ -1096,44 +967,44 @@
                         </div>
                         <div class="website-item">
                             <picture>
-                                <img src="assets/img/work/etravel.webp" alt="">
+                                <img src="assets/img/work/etravel.webp" alt="image de site web etravel, exercice pour mettre en place un base de donnée et maitrise des parametres dans l'url">
                             </picture>
                             <div class="website-item-wrap">
                                 <div class="website-info">
                                     <span>Etravel</span>
-                                    <ul>
+                                    <ul style="margin-top: 20px;">
                                         <li>
                                             <div>
                                                 <picture>
-                                                    <img src="assets/img/icons/html-icon.webp" alt="">
+                                                    <img src="assets/img/icons/html-icon.webp" alt="icone html">
                                                 </picture>
                                             </div>
                                         </li>
                                         <li>
                                             <div>
                                                 <picture>
-                                                    <img src="assets/img/icons/css-icon.webp" alt="">
+                                                    <img src="assets/img/icons/css-icon.webp" alt="icone css">
                                                 </picture>
                                             </div>
                                         </li>
                                         <li>
                                             <div>
                                                 <picture>
-                                                    <img src="assets/img/icons/php-icon.webp" alt="">
+                                                    <img src="assets/img/icons/php-icon.webp" alt="icone php">
                                                 </picture>
                                             </div>
                                         </li>
                                         <li>
                                             <div>
                                                 <picture>
-                                                    <img src="assets/img/icons/javascript-icon.webp" alt="">
+                                                    <img src="assets/img/icons/javascript-icon.webp" alt="icone javascript">
                                                 </picture>
                                             </div>
                                         </li>
                                         <li>
                                             <div>
                                                 <picture>
-                                                    <img src="assets/img/icons/mysql-icon.webp" alt="">
+                                                    <img src="assets/img/icons/mysql-icon.webp" alt="icone mysql">
                                                 </picture>
                                             </div>
                                         </li>
@@ -1143,7 +1014,7 @@
                         </div>
                         <div class="website-item">
                             <picture>
-                                <img src="assets/img/work/lpdr.webp" alt="">
+                                <img src="assets/img/work/lpdr.webp" alt="image de site web Les pepite du rap, pour un projet journalistique d'un groupe étudiant">
                             </picture>
                             <div class="website-item-wrap">
                                 <div class="website-info">
@@ -1152,28 +1023,28 @@
                                         <li>
                                             <div>
                                                 <picture>
-                                                    <img src="assets/img/icons/html-icon.webp" alt="">
+                                                    <img src="assets/img/icons/html-icon.webp" alt="icone html">
                                                 </picture>
                                             </div>
                                         </li>
                                         <li>
                                             <div>
                                                 <picture>
-                                                    <img src="assets/img/icons/css-icon.webp" alt="">
+                                                    <img src="assets/img/icons/css-icon.webp" alt="icone css">
                                                 </picture>
                                             </div>
                                         </li>
                                         <li>
                                             <div>
                                                 <picture>
-                                                    <img src="assets/img/icons/javascript-icon.webp" alt="">
+                                                    <img src="assets/img/icons/javascript-icon.webp" alt="icone javascript">
                                                 </picture>
                                             </div>
                                         </li>
                                         <li>
                                             <div>
                                                 <picture>
-                                                    <img src="assets/img/icons/figma-icon.webp" alt="">
+                                                    <img src="assets/img/icons/figma-icon.webp" alt="icone figma">
                                                 </picture>
                                             </div>
                                         </li>
@@ -1183,44 +1054,44 @@
                         </div>
                         <div class="website-item">
                             <picture>
-                                <img src="assets/img/work/lebelinstant.webp" alt="">
+                                <img src="assets/img/work/lebelinstant.webp" alt="image du site web Le Bel Instant, salon de thé à Angoulême">
                             </picture>
                             <div class="website-item-wrap">
                                 <div class="website-info">
                                     <a href="https://lebelinstant.net/">Le bel instant</a>
-                                    <ul>
+                                    <ul style="margin-top: 20px;">
                                         <li>
                                             <div>
                                                 <picture>
-                                                    <img src="assets/img/icons/html-icon.webp" alt="">
+                                                    <img src="assets/img/icons/html-icon.webp" alt="icone html5">
                                                 </picture>
                                             </div>
                                         </li>
                                         <li>
                                             <div>
                                                 <picture>
-                                                    <img src="assets/img/icons/css-icon.webp" alt="">
+                                                    <img src="assets/img/icons/css-icon.webp" alt="icone css3">
                                                 </picture>
                                             </div>
                                         </li>
                                         <li>
                                             <div>
                                                 <picture>
-                                                    <img src="assets/img/icons/figma-icon.webp" alt="">
+                                                    <img src="assets/img/icons/figma-icon.webp" alt="icone figla">
                                                 </picture>
                                             </div>
                                         </li>
                                         <li>
                                             <div>
                                                 <picture>
-                                                    <img src="assets/img/icons/javascript-icon.webp" alt="">
+                                                    <img src="assets/img/icons/javascript-icon.webp" alt="icone javascript">
                                                 </picture>
                                             </div>
                                         </li>
                                         <li>
                                             <div>
                                                 <picture>
-                                                    <img src="assets/img/icons/mysql-icon.webp" alt="">
+                                                    <img src="assets/img/icons/mysql-icon.webp" alt="icone mysql">
                                                 </picture>
                                             </div>
                                         </li>
@@ -1294,12 +1165,12 @@
                     <ul>
                         <li>
                             <picture>
-                                <img src="assets/img/work/10.webp" alt="" />
+                                <img src="assets/img/work/10.webp" alt="placeholder" />
                             </picture>
                         </li>
                         <li>
                             <picture>
-                                <img src="assets/img/work/11.webp" alt="" />
+                                <img src="assets/img/work/11.webp" alt="placeholder" />
                             </picture>
                         </li>
                     </ul>
@@ -1309,12 +1180,12 @@
                 <ul>
                     <li>
                         <picture>
-                            <!-- <img src="assets/img/kermit.gif" alt="" /> -->
+                            <img src="assets/img/kermit.gif" alt="placeholder" />
                         </picture>
                     </li>
                     <li>
                         <picture>
-                            <!-- <img src="assets/img/kermit.gif" alt="" /> -->
+                            <img src="assets/img/kermit.gif" alt="placeholder" />
                         </picture>
                     </li>
                 </ul>
@@ -1326,7 +1197,7 @@
                 <div class="nav-item next">
                     <button>
                         <picture>
-                            <img src="assets/img/work/0.webp" alt="" />
+                            <img src="assets/img/work/0.webp" alt="placeholder" />
                         </picture>
                         <span>next</span>
                     </button>
@@ -1334,7 +1205,7 @@
                 <div class="nav-item prev">
                     <button>
                         <picture>
-                            <img src="assets/img/work/1.webp" alt="" />
+                            <img src="assets/img/work/1.webp" alt="placeholder" />
                         </picture>
                         <span>prev</span>
                     </button>
@@ -1342,7 +1213,6 @@
             </div>
         </section>
     </main>
-
     <footer data-scroll-section>
         <div class="back-ticker">
             <div>
@@ -1362,23 +1232,31 @@
                     <a href="mailto:vozgraphika@gmail.com?subject=Prise%20de%20contact">Send an Email</a>
                 </div>
             </div>
-
             <div class="contacts">
                 <div class="socials">
                     <li>
                         <a href="https://www.instagram.com/plonnnk?igsh=NXFvNXdwbzMybjBn">
                             <i class="fa-brands fa-instagram"></i>
                         </a>
+                        <span>
+                            
+                        </span>
                     </li>
                     <li>
                         <a href="https://github.com/Plonk-jpeg">
                             <i class="fa-brands fa-github"></i>
                         </a>
+                        <span>
+                            
+                        </span>
                     </li>
                     <li>
                         <a href="https://www.linkedin.com/in/theo-sylvoz-498480187/">
                             <i class="fa-brands fa-linkedin"></i>
                         </a>
+                        <span>
+                            
+                        </span>
                     </li>
                 </div>
                 <div class="contact-info">
